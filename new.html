@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Romuyks | Payment</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Complete your Romuyks payment securely and confirm your order details." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.romuyks.com/new.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Payment" />
+  <meta property="og:description" content="Complete your Romuyks payment securely and confirm your order details." />
+  <meta property="og:url" content="https://www.romuyks.com/new.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Payment" />
+  <meta name="twitter:description" content="Complete your Romuyks payment securely and confirm your order details." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+
+<link rel="stylesheet" href="payment.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<style>
+    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body{
+background:#0a0912;
+color:white;
+animation:pageFade 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-box{
+background:#2b11d420;
+padding:6px;
+border-radius:6px;
+color:#2b11d4;
+}
+
+.header-icons{
+display:flex;
+gap:10px;
+}
+
+.icon-btn{
+background:#1e1e2a;
+border:none;
+color:white;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+animation:pageSectionReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+animation-delay:0.08s;
+}
+
+@keyframes pageFade{
+0%{opacity:0;transform:translateY(16px) scale(0.995);filter:blur(3px)}
+100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+
+@keyframes pageSectionReveal{
+0%{opacity:0;transform:translateY(22px)}
+100%{opacity:1;transform:translateY(0)}
+}
+
+@media (prefers-reduced-motion: reduce){
+body,.container{animation:none !important;transition:none !important}
+}
+
+.title h1{
+font-size:36px;
+}
+
+.underline{
+height:4px;
+width:90px;
+background:#2b11d4;
+margin:10px 0;
+border-radius:20px;
+}
+
+.title p{
+color:#aaa;
+}
+
+.payment-tabs{
+display:flex;
+gap:10px;
+margin:30px 0;
+flex-wrap:wrap;
+}
+
+.tab{
+padding:10px 20px;
+background:#1c1c2a;
+border:none;
+border-radius:30px;
+color:#bbb;
+display:flex;
+align-items:center;
+gap:6px;
+cursor:pointer;
+}
+
+.tab.active{
+background:#2b11d4;
+color:white;
+}
+
+.payment-box{
+background:#161526;
+border-radius:15px;
+padding:30px;
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.qr-box{
+text-align:center;
+}
+
+.qr{
+background:white;
+width:160px;
+height:160px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+color:black;
+font-size:60px;
+}
+
+.qr-box p{
+font-size:12px;
+color:#aaa;
+margin-top:10px;
+}
+
+.payment-details{
+flex:1;
+}
+
+.payment-details h3{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.verified{
+background:#00ff8850;
+color:#00ff88;
+font-size:10px;
+padding:4px 8px;
+border-radius:20px;
+margin-left:10px;
+}
+
+.upi span{
+font-size:12px;
+color:#aaa;
+}
+
+.upi p{
+font-size:18px;
+margin-top:5px;
+}
+
+.amount-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:40px;
+}
+
+.amount-row span{
+font-size:12px;
+color:#aaa;
+}
+
+.amount-row h2{
+font-size:28px;
+}
+
+.pay-btn{
+background:linear-gradient(90deg,#2b11d4,#2563eb);
+border:none;
+padding:14px 30px;
+color:white;
+font-size:16px;
+border-radius:10px;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.other-title{
+margin-top:40px;
+margin-bottom:20px;
+}
+
+.other-options{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.option{
+background:#1c1c2a;
+padding:15px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.option-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.option-left p{
+font-weight:600;
+}
+
+.option-left small{
+color:#aaa;
+}
+
+.footer{
+text-align:center;
+padding:30px;
+color:#aaa;
+border-top:1px solid rgba(255,255,255,0.1);
+margin-top:40px;
+}
+
+@media (max-width:900px){
+.header{
+padding:16px 18px;
+}
+
+.logo h2{
+font-size:18px;
+}
+
+.container{
+padding:30px 16px;
+}
+
+.title h1{
+font-size:30px;
+line-height:1.2;
+}
+
+.payment-box{
+padding:20px;
+gap:20px;
+}
+
+.qr-box,
+.payment-details{
+width:100%;
+}
+
+.amount-row{
+flex-direction:column;
+align-items:flex-start;
+gap:14px;
+}
+
+.pay-btn{
+width:100%;
+justify-content:center;
+}
+}
+
+@media (max-width:640px){
+.header{
+padding:14px 12px;
+}
+
+.header-icons{
+gap:8px;
+}
+
+.icon-btn{
+padding:8px;
+}
+
+.title h1{
+font-size:26px;
+}
+
+.payment-tabs{
+display:grid;
+grid-template-columns:1fr;
+gap:8px;
+}
+
+.tab{
+width:100%;
+justify-content:center;
+}
+
+.payment-box{
+padding:16px;
+border-radius:12px;
+}
+
+.qr{
+width:132px;
+height:132px;
+font-size:48px;
+margin:0 auto;
+}
+
+.payment-details h3{
+font-size:20px;
+line-height:1.3;
+}
+
+.amount-row h2{
+font-size:24px;
+}
+
+.other-options{
+grid-template-columns:1fr;
+}
+
+.option{
+padding:12px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+<div class="logo-box">
+<span class="material-symbols-outlined">diamond</span>
+</div>
+<h2>ROMUYKS</h2>
+</div>
+
+<div class="header-icons">
+
+<button class="icon-btn">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+
+<button class="icon-btn">
+<span class="material-symbols-outlined">person</span>
+</button>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="title">
+
+<h1>Choose Payment Method</h1>
+
+<div class="underline"></div>
+
+<p>Secure, encrypted, and fast checkout process.</p>
+
+</div>
+
+
+<div class="payment-tabs">
+
+<button class="tab active">
+<span class="material-symbols-outlined">qr_code_2</span>
+UPI (QR)
+</button>
+
+<button class="tab">
+<span class="material-symbols-outlined">payments</span>
+Cash on Delivery
+</button>
+
+<button class="tab">
+<span class="material-symbols-outlined">account_balance</span>
+Net Banking
+</button>
+
+<button class="tab">
+<span class="material-symbols-outlined">credit_card</span>
+Debit / Credit Card
+</button>
+
+</div>
+
+
+
+<div class="payment-box">
+
+<div class="qr-box">
+
+<div class="qr">
+
+<span class="material-symbols-outlined">qr_code_2</span>
+
+</div>
+
+<p>SCAN TO PAY SECURELY</p>
+
+</div>
+
+
+
+<div class="payment-details">
+
+<h3>
+Scan & Pay
+<span class="verified">Verified</span>
+</h3>
+
+<div class="upi">
+
+<span>UPI ID</span>
+
+<p>neelvaghasiya6265-1@oksbi</p>
+
+</div>
+
+<div class="amount-row">
+
+<div>
+
+<span>Total Amount</span>
+
+<h2>&#8377;5,791.00</h2>
+
+</div>
+
+<button class="pay-btn">
+Payment Done
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<h3 class="other-title">Other Payment Options</h3>
+
+<div class="other-options">
+
+<div class="option">
+
+<div class="option-left">
+
+<span class="material-symbols-outlined">account_balance</span>
+
+<div>
+
+<p>Net Banking</p>
+
+<small>All major banks supported</small>
+
+</div>
+
+</div>
+
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+
+</div>
+
+
+<div class="option">
+
+<div class="option-left">
+
+<span class="material-symbols-outlined">credit_card</span>
+
+<div>
+
+<p>Credit / Debit Cards</p>
+
+<small>Visa, Mastercard, RuPay</small>
+
+</div>
+
+</div>
+
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+
+</div>
+
+
+<div class="option">
+
+<div class="option-left">
+
+<span class="material-symbols-outlined">local_shipping</span>
+
+<div>
+
+<p>Cash on Delivery</p>
+
+<small>Pay when you receive</small>
+
+</div>
+
+</div>
+
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
+
+

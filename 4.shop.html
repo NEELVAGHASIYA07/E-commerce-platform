@@ -1,0 +1,1459 @@
+<!doctype html>
+  <html class="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romuyks | Shop</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Shop curated products on Romuyks with smart search, filters, and fast checkout for a seamless online shopping experience." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.romuyks.com/4.shop.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Shop" />
+  <meta property="og:description" content="Shop curated products on Romuyks with smart search, filters, and fast checkout for a seamless online shopping experience." />
+  <meta property="og:url" content="https://www.romuyks.com/4.shop.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Shop" />
+  <meta name="twitter:description" content="Shop curated products on Romuyks with smart search, filters, and fast checkout for a seamless online shopping experience." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+    <link rel="stylesheet" href="E-commerce.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .shop-filter-toolbar {
+        position: relative;
+        z-index: 50;
+        margin: 0;
+        padding: 0;
+      }
+      .soft-search-wrapper {
+        position: relative;
+        display: block;
+        max-width: 1200px;
+        margin: 12px auto 24px;
+        padding: 0 20px;
+      }
+      #categorySidebarToggle {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .soft-search {
+        width: min(700px, 100%);
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .soft-search-wrapper.shop-enter,
+      .soft-search-wrapper.shop-enter.show {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .filters-toggle {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+        border-radius: 12px;
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        color: #ffffff;
+        font-weight: 600;
+        box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+      .filters-toggle i {
+        color: #ffffff;
+        font-size: 1.05rem;
+      }
+      .filters-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      }
+      .filters-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.62);
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 1090;
+      }
+      .filters-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .shop-enter {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+      }
+      .shop-enter.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .shop-enter,
+        .shop-enter.show {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#0b0a0f] text-slate-100 antialiased overflow-x-hidden">
+    <header>
+      <nav class="premium-nav nav-links">
+        <div class="nav-left">
+          <div class="logo-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <span class="logo-text">ROMUYKS</span>
+        </div>
+        <div class="nav-center">
+          <a href="1.index.html">Home</a>
+          <a href="3.products.html">Products</a>
+          <a href="4.shop.html">Shop</a>
+          <a href="2.about.html">About</a>
+          <a href="7.orders.html">Orders</a>
+        </div>
+
+        <!-- RIGHT: ICONS -->
+        <div class="nav-right">
+          <a href="6.cart.html" class="nav-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </a>
+
+          <a href="8.auth.html">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products" style="padding-top:110px;">
+      <div class="shop-heading-wrap shop-enter">
+        <p class="shop-kicker">Professional Collection</p>
+        <h2 class="section-title shop-main-title">Shop Our Products</h2>
+      </div>
+      <p class="section-desc shop-enter">
+        Discover premium lifestyle and home essentials curated for quality,
+        value, and dependable delivery.
+      </p>
+
+      <div class="filters-backdrop" id="filtersBackdrop"></div>
+
+      <!-- SOFT DARK SEARCH BAR WITH FILTER ICON -->
+      <div class="soft-search-wrapper shop-enter">
+        <button class="shop-filter-toolbar filters-toggle" type="button" id="categorySidebarToggle" aria-label="Toggle filters" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="soft-search">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products (example: lamp under 800)"
+            autocomplete="off"
+          />
+          <span class="soft-search-icon" id="searchBtn" title="Search">🔍</span>
+          
+          <!-- AI AUTOCOMPLETE DROPDOWN -->
+          <div id="smartAutocomplete" class="smart-ac-dropdown"></div>
+
+          <!-- SEARCH HISTORY DROPDOWN -->
+          <div id="searchHistoryDropdown" class="search-history-dropdown">
+            <!-- History items will be injected here -->
+          </div>
+        </div>
+      </div>
+
+      <button
+        id="backBtn"
+        class="btn btn-secondary"
+        style="display: none; margin: 15px auto; cursor: pointer"
+      >
+        ← Back to Shop
+      </button>
+
+      <div id="searchResults"></div>
+
+      <div class="shop-container shop-enter">
+        <aside class="category-sidebar" id="shopCategorySidebar">
+          <div class="sidebar-header">
+            <div>
+              <p class="sidebar-kicker">Browse</p>
+              <h3>Filters</h3>
+            </div>
+            <span class="sidebar-pill">5 options</span>
+          </div>
+          <div class="category-list" id="categoryList">
+            <label class="category-option active" data-filter="all">
+              <input type="radio" name="shopCategory" value="all" checked />
+              <span class="category-option-icon">🛍️</span>
+              <span class="category-option-copy">
+                <span class="category-option-title">All Categories</span>
+                <span class="category-option-subtitle">Show every product</span>
+              </span>
+            </label>
+            <label class="category-option" data-filter="tech">
+              <input type="radio" name="shopCategory" value="tech" />
+              <span class="category-option-icon">⚡</span>
+              <span class="category-option-copy">
+                <span class="category-option-title">Tech (Electronics)</span>
+                <span class="category-option-subtitle">Gadgets, lighting, audio</span>
+              </span>
+            </label>
+            <label class="category-option" data-filter="living">
+              <input type="radio" name="shopCategory" value="living" />
+              <span class="category-option-icon">🏠</span>
+              <span class="category-option-copy">
+                <span class="category-option-title">Living (Home &amp; Kitchen)</span>
+                <span class="category-option-subtitle">Useful home essentials</span>
+              </span>
+            </label>
+            <label class="category-option" data-filter="care-living">
+              <input type="radio" name="shopCategory" value="care-living" />
+              <span class="category-option-icon">✨</span>
+              <span class="category-option-copy">
+                <span class="category-option-title">Care &amp; Living (Beauty &amp; Personal Care)</span>
+                <span class="category-option-subtitle">Wellness and self-care</span>
+              </span>
+            </label>
+            <label class="category-option" data-filter="style-care">
+              <input type="radio" name="shopCategory" value="style-care" />
+              <span class="category-option-icon">👗</span>
+              <span class="category-option-copy">
+                <span class="category-option-title">Style &amp; Care (Fashion)</span>
+                <span class="category-option-subtitle">Style, winter, and wearables</span>
+              </span>
+            </label>
+          </div>
+        </aside>
+
+        <div class="products-main" id="productsMain">
+      <div class="products-grid">
+        <!-- PRODUCT 1 -->
+        <div
+          id="product-img3.jpeg"
+          class="product-card shop-enter"
+          data-core-category="living"
+          onclick="
+            openModal(
+              'Waffle Maker',
+              '₹499',
+              'Professional responsive business website template.',
+              [],
+              'img3.jpeg',
+              'kitchen',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Waffle Maker', 499, 'img3.jpeg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img3.jpeg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Waffle Maker</h3>
+              <p>Easy Waffle Maker</p>
+            </div>
+            <div class="price">₹499</div>
+
+            <!-- ADD TO CART -->
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Waffle Maker', 499, 'img3.jpeg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div
+          id="product-img1.jpeg"
+          class="product-card shop-enter"
+          data-core-category="living"
+          onclick="
+            openModal(
+              'Night Bulb',
+              '₹399',
+              'Personal portfolio website for developers & designers.',
+              [],
+              'img1.jpeg',
+              'lighting',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Night Bulb', 399, 'img1.jpeg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img1.jpeg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>3D crystal moon lamp</h3>
+              <p>Perfect Lamp for Night</p>
+            </div>
+            <div class="price">₹399</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Night Bulb', 399, 'img1.jpeg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div
+          id="product-img2.jpeg"
+          class="product-card shop-enter"
+          data-core-category="living"
+          onclick="
+            openModal(
+              'Panda Bulb',
+              '₹699',
+              'Panda Lamp for your night which make amazing scene!',
+              [],
+              'img2.jpeg',
+              'lighting',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Panda Bulb', 699, 'img2.jpeg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img2.jpeg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Panda night lamp</h3>
+              <p>Beautiful Panda Lamp</p>
+            </div>
+            <div class="price">₹699</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Panda Bulb', 699, 'img2.jpeg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <div class="products-grid">
+        <!-- PRODUCT 4 -->
+        <div
+          id="product-unnamed.png"
+          class="product-card shop-enter"
+          data-core-category="tech"
+          onclick="
+            openModal(
+              'Headphone',
+              '₹899',
+              'Wireless over-ear headphone with rich bass and comfortable fit.',
+              [],
+              'unnamed.png',
+              'audio',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Headphone', 899, 'unnamed.png', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/unnamed.png" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Headphone</h3>
+              <p>Wireless Over-Ear Headphone</p>
+            </div>
+            <div class="price">₹899</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Headphone', 899, 'unnamed.png');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 5 -->
+        <div
+          id="product-img4.jpeg"
+          class="product-card shop-enter"
+          data-core-category="style-care"
+          onclick="
+            openModal(
+              'Ear muffs',
+              '₹399',
+              'Kids Winter Ear Muffs Rainbow & Rabbit Moving Ear Bunny Warmers',
+              [],
+              'img4.jpeg',
+              'winter',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Ear Muffs', 399, 'img4.jpeg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img4.jpeg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Ear muffs</h3>
+              <p>
+                Kids Winter Ear Muffs Rainbow & Rabbit Moving Ear Bunny Warmers
+              </p>
+            </div>
+            <div class="price">₹399</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Ear Muffs', 399, 'img4.jpeg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 6 -->
+        <div
+          id="product-img5.jpeg"
+          class="product-card shop-enter"
+          data-core-category="lighting"
+          onclick="
+            openModal(
+              'Galaxy Projector',
+              '₹1299',
+              'Galaxy star projector for room and party ambiance.',
+              [],
+              'img5.jpeg',
+              'lighting',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Galaxy Projector', 1299, 'img5.jpeg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img5.jpeg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Galaxy Projector</h3>
+              <p>Star Night Light Projector</p>
+            </div>
+            <div class="price">₹1299</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Galaxy Projector', 1299, 'img5.jpeg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 7 -->
+        <div
+          class="product-card shop-enter"
+          data-core-category="all-only"
+          onclick="
+            openModal(
+              'Aroma Diffuser',
+              '₹999',
+              'Essential oil aroma diffuser with soft LED lighting.',
+              [],
+              'img6.jpeg',
+              'home-decor',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Aroma Diffuser', 999, 'img6.jpeg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img6.jpeg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Aroma Diffuser</h3>
+              <p>Relaxing Essential Oil Diffuser</p>
+            </div>
+            <div class="price">₹999</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Aroma Diffuser', 999, 'img6.jpeg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 8 -->
+        <div
+          id="product-img7.jpg"
+          class="product-card shop-enter"
+          data-core-category="care-living"
+          onclick="
+            openModal(
+              'Nivea Body Milk',
+              '₹349',
+              'Nourishing body lotion with deep moisture for dry skin.',
+              [],
+              'img7.jpg',
+              'personal-care',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Nivea Body Milk', 349, 'img7.jpg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img7.jpg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Nivea Body Milk</h3>
+              <p>72h Deep Moisture Lotion</p>
+            </div>
+            <div class="price">₹349</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Nivea Body Milk', 349, 'img7.jpg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 9 -->
+        <div
+          id="product-img8.jpg"
+          class="product-card shop-enter"
+          data-core-category="style-care"
+          onclick="
+            openModal(
+              'Printed Kurta',
+              '₹999',
+              'Cotton Printed Kurta Set with Palazzo Pants and Dupatta',
+              [],
+              'img8.jpg',
+              'style-care',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Printed Kurta', 999, 'img8.jpg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img8.jpg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Printed Kurta</h3>
+              <p>Cotton Printed Kurta Set with Palazzo Pants and Dupatta</p>
+            </div>
+            <div class="price">₹999</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Printed Kurta', 999, 'img8.jpg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 10 -->
+        <div
+          id="product-img9.jpg"
+          class="product-card shop-enter"
+          data-core-category="tech"
+          onclick="
+            openModal(
+              'Earbuds',
+              '₹1499',
+              'JBL Tune Buds 2 Ear Buds Wireless TWS Bluetooth v5.3 Earbuds',
+              [],
+              'img9.jpg',
+              'tech',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('Earbuds', 1499, 'img9.jpg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img9.jpg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>Earbuds</h3>
+              <p>JBL Tune Buds 2 Ear Buds Wireless TWS Bluetooth v5.3 Earbuds</p>
+            </div>
+            <div class="price">₹1499</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('Earbuds', 1499, 'img9.jpg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 11 -->
+        <div
+          id="product-img10.jpg"
+          class="product-card shop-enter"
+          data-core-category="tech"
+          onclick="
+            openModal(
+              'iphone 17 pro max',
+              '₹1,64,999',
+              'Apple iPhone 17 Pro Max 512 GB, Silver',
+              [],
+              'img10.jpg',
+              'tech',
+            )
+          "
+        >
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist('iphone 17 pro max', 164999, 'img10.jpg', this)" title="Add to Wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <img src="imgs/img10.jpg" />
+
+          <div class="product-info">
+            <div class="product-title-group">
+              <h3>iphone 17 pro max</h3>
+              <p>Apple iPhone 17 Pro Max 512 GB, Silver</p>
+            </div>
+            <div class="price">₹1,64,999</div>
+
+            <button
+              class="btn btn-primary"
+              onclick="
+                event.stopPropagation();
+                addToCart('iphone 17 pro max', 164999, 'img10.jpg');
+              "
+            >
+              <b style="font-size: 16px">🛒 Add to Cart</b>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p id="categoryEmptyState" class="section-desc" style="display:none; margin-top:20px; margin-bottom:0;">
+        No products found.
+      </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <span class="close" onclick="closeModal()">×</span>
+      <div class="modal-content">
+        <img id="modalImg" />
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <h3 id="modalPrice"></h3>
+          <p id="modalRating" class="text-sm text-yellow-400" style="margin:4px 0 8px;"></p>
+          <div id="modalLatestReviews"></div>
+          <p id="modalDesc"></p>
+          <div class="platforms" id="modalPlatforms"></div>
+
+          <div class="modal-actions" id="modalActions"></div>
+
+          <!-- AI RECOMMENDATIONS -->
+          <div id="recSimilarProducts" style="display:none; margin-top:20px;"></div>
+          <div id="recAlsoBought" style="display:none; margin-top:10px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="cart.js"></script>
+
+    <!-- WISHLIST LOGIC -->
+    <script>
+      function getWishlist() {
+        return JSON.parse(localStorage.getItem('wishlist') || '[]');
+      }
+      function saveWishlist(list) {
+        localStorage.setItem('wishlist', JSON.stringify(list));
+      }
+      function isInWishlist(name) {
+        return getWishlist().some(item => item.name === name);
+      }
+      function toggleWishlist(name, price, image, btnEl) {
+        let wishlist = getWishlist();
+        const idx = wishlist.findIndex(item => item.name === name);
+        const icon = btnEl.querySelector('i');
+        if (idx !== -1) {
+          wishlist.splice(idx, 1);
+          icon.className = 'fa-regular fa-heart';
+          btnEl.classList.remove('wishlisted');
+        } else {
+          wishlist.push({ name, price, image });
+          icon.className = 'fa-solid fa-heart';
+          btnEl.classList.add('wishlisted');
+        }
+        saveWishlist(wishlist);
+      }
+      // On load, mark already wishlisted products
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.wishlist-btn').forEach(btn => {
+          const onclick = btn.getAttribute('onclick');
+          const match = onclick.match(/toggleWishlist\('([^']+)'/);
+          if (match && isInWishlist(match[1])) {
+            btn.querySelector('i').className = 'fa-solid fa-heart';
+            btn.classList.add('wishlisted');
+          }
+        });
+      });
+    </script>
+
+    <!-- AI ASSISTANT -->
+    <div id="aiAssistant">
+      <div id="aiChat">
+        <div id="aiHeader">
+          Roumyks AI Assistant
+          <span onclick="toggleAI()">&times;</span>
+        </div>
+
+        <div id="aiMessages"></div>
+
+        <div id="aiInputBox">
+          <input type="text" id="aiInput" placeholder="Ask me anything..." />
+          <button onclick="sendAI()">Send</button>
+        </div>
+      </div>
+
+      <button id="aiBtn" onclick="toggleAI()" aria-label="Open AI chatbox"><img src="imgs/ai-chatbot-icon.jpeg" alt="AI chatbot icon" class="ai-btn-icon" /></button>
+    </div>
+    <script src="ai-assistant.js"></script>
+
+    <!-- IMAGE PREVIEW MODAL -->
+    <div id="imageModal" class="image-modal">
+      <span class="image-close" onclick="closeImage()">×</span>
+      <img id="fullImage" />
+    </div>
+
+    <script>
+      function openImage(src) {
+        const modal = document.getElementById("imageModal");
+        const img = document.getElementById("fullImage");
+        img.src = src;
+        modal.classList.add("show");
+      }
+      function closeImage() {
+        document.getElementById("imageModal").classList.remove("show");
+      }
+    </script>
+
+    <script src="contact.js"></script>
+    <script src="recommendation-engine.js?v=2"></script>
+    <script src="smart-search.js?v=2"></script>
+    <script src="product-modal.js?v=2"></script>
+    <script>
+      function renderCardStars(average) {
+        const rounded = Math.round(Number(average || 0));
+        let stars = "";
+        for (let i = 1; i <= 5; i += 1) {
+          stars += i <= rounded
+            ? '<span class="rating-star-filled">★</span>'
+            : '<span class="rating-star-empty">☆</span>';
+        }
+        return stars;
+      }
+
+      function getCardProductName(card) {
+        const onclick = String(card.getAttribute("onclick") || "");
+        const match = onclick.match(/openModal\s*\(\s*'([^']+)'/);
+        return match ? match[1] : "";
+      }
+
+      async function loadShopRatings() {
+        try {
+          const response = await fetch("http://localhost:5000/api/products");
+          const products = await response.json();
+          if (!Array.isArray(products)) return;
+
+          const productMap = new Map(
+            products.map((product) => [String(product?.name || "").trim().toLowerCase(), product])
+          );
+
+          document.querySelectorAll(".product-card").forEach((card) => {
+            const productName = getCardProductName(card);
+            if (!productName) return;
+
+            const product = productMap.get(productName.trim().toLowerCase());
+            const infoContainer = card.querySelector(".product-info");
+            if (!infoContainer) return;
+
+            let ratingEl = infoContainer.querySelector(".product-rating-row");
+            if (!ratingEl) {
+              ratingEl = document.createElement("p");
+              ratingEl.className = "product-rating-row";
+              const priceEl = infoContainer.querySelector(".price");
+              if (priceEl && priceEl.nextSibling) {
+                infoContainer.insertBefore(ratingEl, priceEl.nextSibling);
+              } else if (priceEl) {
+                infoContainer.appendChild(ratingEl);
+              } else {
+                infoContainer.prepend(ratingEl);
+              }
+            }
+
+            const average = Number(product?.averageRating || 0);
+            const count = Number(product?.ratingCount || 0);
+            ratingEl.innerHTML = count > 0
+              ? `${renderCardStars(average)} <span class="rating-metric">${average.toFixed(1)} (${count})</span>`
+              : `<span class="rating-star-empty">☆☆☆☆☆</span> <span class="rating-metric">No reviews yet</span>`;
+          });
+        } catch (error) {
+          console.error("Rating load error:", error);
+        }
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const enterNodes = document.querySelectorAll(".shop-enter");
+        enterNodes.forEach((node, index) => {
+          setTimeout(() => node.classList.add("show"), 70 + (index * 45));
+        });
+
+        const searchBtn = document.getElementById("searchBtn");
+        const searchInput = document.getElementById("searchInput");
+        const searchResults = document.getElementById("searchResults");
+        const productsGrid = document.querySelectorAll(".products-grid");
+        const backBtn = document.getElementById("backBtn");
+        const historyDropdown = document.getElementById("searchHistoryDropdown");
+
+        loadShopRatings();
+
+        let searchHistory = [];
+        const token = localStorage.getItem("token");
+
+        // Fetch initial history
+        if (token) {
+          fetch("http://localhost:5000/api/auth/profile", {
+            headers: { "Authorization": `Bearer ${token}` }
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.user && data.user.searchHistory) {
+              searchHistory = data.user.searchHistory;
+              renderHistory();
+            }
+          })
+          .catch(err => console.error("Error fetching profile:", err));
+        }
+
+        function renderHistory() {
+          if (!searchHistory.length) {
+            historyDropdown.style.display = 'none';
+            return;
+          }
+          
+          let html = `<div class="sh-header">
+                        <div class="sh-header-left">
+                          <i class="fa-solid fa-clock-rotate-left"></i>
+                          <span>Recent Searches</span>
+                        </div>
+                        <button class="sh-clear-btn" onclick="clearHistory()">
+                          <i class="fa-solid fa-trash-can"></i> Clear All
+                        </button>
+                      </div>
+                      <div class="sh-list">`;
+                      
+          searchHistory.forEach((q, i) => {
+            html += `<div class="sh-item" style="animation-delay:${i * 0.04}s">
+                       <div class="sh-item-left" onclick="applyArchivedSearch('${q.replace(/'/g, "\\'")}')">
+                         <div class="sh-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                         <span class="sh-query">${q}</span>
+                       </div>
+                       <button class="sh-delete" onclick="event.stopPropagation(); deleteHistoryItem('${q.replace(/'/g, "\\'")}')" title="Remove">
+                         <i class="fa-solid fa-xmark"></i>
+                       </button>
+                     </div>`;
+          });
+          
+          html += `</div>`;
+          historyDropdown.innerHTML = html;
+        }
+
+        // Add history item to backend
+        async function saveSearchQuery(query) {
+          if (!token || !query) return;
+          try {
+            const res = await fetch("http://localhost:5000/api/auth/search-history", {
+              method: "POST",
+              headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+              },
+              body: JSON.stringify({ query })
+            });
+            const data = await res.json();
+            searchHistory = data.searchHistory || [];
+            renderHistory();
+          } catch (err) {
+            console.error("Error saving search history:", err);
+          }
+        }
+
+        window.applyArchivedSearch = function(q) {
+          searchInput.value = q;
+          historyDropdown.style.display = 'none';
+          SmartSearch.hideAutocomplete('smartAutocomplete');
+          performSearch();
+        };
+
+        window.clearHistory = async function() {
+          if (!token) return;
+          try {
+            const res = await fetch("http://localhost:5000/api/auth/search-history", {
+              method: "DELETE",
+              headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+              }
+            });
+            const data = await res.json();
+            searchHistory = data.searchHistory || [];
+            renderHistory();
+          } catch (err) {
+            console.error(err);
+          }
+        };
+
+        window.deleteHistoryItem = async function(q, event) {
+          if (event) event.stopPropagation();
+          if (!token) return;
+          try {
+            const res = await fetch("http://localhost:5000/api/auth/search-history", {
+              method: "DELETE",
+              headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+              },
+              body: JSON.stringify({ query: q })
+            });
+            const data = await res.json();
+            searchHistory = data.searchHistory || [];
+            renderHistory();
+          } catch (err) {
+            console.error(err);
+          }
+        };
+
+        // UI events for dropdown
+        searchInput.addEventListener("focus", () => {
+          if (searchInput.value.trim().length > 0) {
+            SmartSearch.debounceAutocomplete(searchInput.value, 'smartAutocomplete', onAutocompleteSelect, 100);
+          } else if (searchHistory.length > 0) {
+            historyDropdown.style.display = "block";
+          }
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".soft-search-wrapper")) {
+            historyDropdown.style.display = "none";
+            SmartSearch.hideAutocomplete('smartAutocomplete');
+          }
+        });
+
+        // Hover styles for history items dynamically added
+        const style = document.createElement('style');
+        style.innerHTML = `
+          .search-history-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, #12101f, #0a0816);
+            border: 1px solid rgba(59, 21, 227, 0.2);
+            border-radius: 16px;
+            z-index: 200;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04) inset;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            max-height: 340px;
+            overflow-y: auto;
+          }
+          .search-history-dropdown::-webkit-scrollbar { width: 4px; }
+          .search-history-dropdown::-webkit-scrollbar-track { background: transparent; }
+          .search-history-dropdown::-webkit-scrollbar-thumb { background: rgba(59,21,227,0.3); border-radius: 4px; }
+
+          .sh-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+          }
+          .sh-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #9ca3af;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+          }
+          .sh-header-left i {
+            font-size: 11px;
+            color: #7c3aed;
+          }
+          .sh-clear-btn {
+            background: none;
+            border: 1px solid rgba(239,68,68,0.2);
+            color: #ef4444;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 12px;
+            border-radius: 20px;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+          .sh-clear-btn:hover {
+            background: rgba(239,68,68,0.12);
+            border-color: rgba(239,68,68,0.4);
+          }
+
+          .sh-list { padding: 6px 0; }
+
+          .sh-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            margin: 2px 8px;
+            border-radius: 10px;
+            transition: background 0.2s;
+            animation: shFadeIn 0.3s ease both;
+          }
+          .sh-item:hover { background: rgba(255,255,255,0.05); }
+
+          .sh-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            cursor: pointer;
+            padding: 10px 4px;
+            min-width: 0;
+          }
+          .sh-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: rgba(59, 21, 227, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .sh-icon i {
+            font-size: 12px;
+            color: #7c3aed;
+          }
+          .sh-query {
+            color: #e5e7eb;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .sh-item:hover .sh-query { color: #ffffff; }
+          .sh-item:hover .sh-icon { background: rgba(59,21,227,0.2); }
+          .sh-item:hover .sh-icon i { color: #a78bfa; }
+
+          .sh-delete {
+            background: none;
+            border: none;
+            color: #4b5563;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            opacity: 0;
+          }
+          .sh-item:hover .sh-delete { opacity: 1; }
+          .sh-delete:hover {
+            color: #ef4444;
+            background: rgba(239,68,68,0.1);
+          }
+
+          @keyframes shFadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `;
+        document.head.appendChild(style);
+
+        /* ========================
+           AI AUTOCOMPLETE ON INPUT
+        ======================== */
+        function onAutocompleteSelect(data) {
+          SmartSearch.hideAutocomplete('smartAutocomplete');
+          searchInput.value = data.name;
+          if (typeof openModal === 'function') {
+            openModal(
+              data.name,
+              '₹' + data.price,
+              data.desc,
+              ['Amazon', 'Flipkart', 'Meesho'],
+              data.image,
+              ''
+            );
+          }
+        }
+
+        searchInput.addEventListener("input", () => {
+          const val = searchInput.value.trim();
+          historyDropdown.style.display = 'none';
+          if (val.length >= 1) {
+            SmartSearch.debounceAutocomplete(val, 'smartAutocomplete', onAutocompleteSelect);
+          } else {
+            SmartSearch.hideAutocomplete('smartAutocomplete');
+            if (searchHistory.length > 0) {
+              historyDropdown.style.display = 'block';
+            }
+          }
+        });
+
+        /* ========================
+           FULL SEARCH (Enter / Click)
+        ======================== */
+        async function performSearch() {
+          const query = searchInput.value.trim();
+          if (!query) return;
+
+          saveSearchQuery(query);
+          historyDropdown.style.display = "none";
+          SmartSearch.hideAutocomplete('smartAutocomplete');
+
+          productsGrid.forEach((g) => (g.style.display = "none"));
+          backBtn.style.display = "block";
+
+          searchResults.innerHTML = '<div class="smart-searching"><div class="smart-searching-spinner"></div> Searching with AI...</div>';
+
+          try {
+            const results = await SmartSearch.search(query, 10);
+            SmartSearch.renderSearchResults('searchResults', results, query);
+          } catch {
+            searchResults.innerHTML = '<div class="smart-no-results"><i class="fa-solid fa-circle-exclamation"></i><p>Search error. Please try again.</p></div>';
+          }
+        }
+
+        /* BACK BUTTON FUNCTION */
+        backBtn.addEventListener("click", () => {
+          searchResults.innerHTML = "";
+          searchInput.value = "";
+          productsGrid.forEach((g) => (g.style.display = ""));
+          if (typeof window.applyShopCategoryFilter === "function") {
+            window.applyShopCategoryFilter(window.shopCurrentCategory || "all");
+          }
+          backBtn.style.display = "none";
+        });
+
+        searchBtn.addEventListener("click", performSearch);
+
+        searchInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            SmartSearch.hideAutocomplete('smartAutocomplete');
+            performSearch();
+          }
+          if (e.key === "Escape") {
+            SmartSearch.hideAutocomplete('smartAutocomplete');
+            historyDropdown.style.display = 'none';
+          }
+        });
+
+        // Prefetch products for instant autocomplete
+        SmartSearch.getAllProducts();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sidebar = document.getElementById("shopCategorySidebar");
+        const toggleBtn = document.getElementById("categorySidebarToggle");
+        const backdrop = document.getElementById("filtersBackdrop");
+        const categoryOptions = Array.from(document.querySelectorAll(".category-option[data-filter]"));
+        const categoryRadios = Array.from(document.querySelectorAll('input[name="shopCategory"]'));
+        const categoryCards = Array.from(document.querySelectorAll(".product-card[data-core-category]"));
+        const productGroups = Array.from(document.querySelectorAll(".products-grid"));
+        const emptyState = document.getElementById("categoryEmptyState");
+        window.shopCurrentCategory = window.shopCurrentCategory || "all";
+
+        function openFilters() {
+          if (!sidebar) return;
+          sidebar.classList.add("open");
+          if (backdrop) {
+            backdrop.classList.add("open");
+          }
+          if (toggleBtn) {
+            toggleBtn.setAttribute("aria-expanded", "true");
+          }
+        }
+
+        function closeFilters() {
+          if (!sidebar) return;
+          sidebar.classList.remove("open");
+          if (backdrop) {
+            backdrop.classList.remove("open");
+          }
+          if (toggleBtn) {
+            toggleBtn.setAttribute("aria-expanded", "false");
+          }
+        }
+
+        function applyCategoryFilter(filterName) {
+          const selected = (filterName || "all").toLowerCase();
+          let visibleCount = 0;
+          window.shopCurrentCategory = selected;
+
+          categoryOptions.forEach((option) => {
+            const isSelected = option.dataset.filter === selected;
+            option.classList.toggle("active", isSelected);
+            const radio = option.querySelector('input[type="radio"]');
+            if (radio) {
+              radio.checked = isSelected;
+            }
+          });
+
+          categoryCards.forEach((card) => {
+            const cardCategory = (card.dataset.coreCategory || "").toLowerCase();
+            const shouldShow = selected === "all" || cardCategory === selected;
+            card.classList.toggle("hidden", !shouldShow);
+            card.classList.toggle("visible", shouldShow);
+            if (shouldShow) visibleCount += 1;
+          });
+
+          productGroups.forEach((group) => {
+            const visibleCards = group.querySelectorAll('.product-card:not(.hidden)').length;
+            group.style.display = visibleCards > 0 ? "" : "none";
+          });
+
+          if (emptyState) {
+            emptyState.style.display = visibleCount === 0 ? "block" : "none";
+          }
+
+          if (window.innerWidth <= 1024 && sidebar) {
+            closeFilters();
+          }
+        }
+
+        categoryOptions.forEach((option) => {
+          option.addEventListener("click", () => {
+            const selectedFilter = option.dataset.filter || "all";
+            applyCategoryFilter(selectedFilter);
+            closeFilters();
+            setTimeout(() => {
+              document.querySelector(".products-main").scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 200);
+          });
+        });
+
+        categoryRadios.forEach((radio) => {
+          radio.addEventListener("change", () => {
+            if (radio.checked) {
+              applyCategoryFilter(radio.value || "all");
+              closeFilters();
+              setTimeout(() => {
+                document.querySelector(".products-main").scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 200);
+            }
+          });
+        });
+
+        if (toggleBtn && sidebar) {
+          toggleBtn.addEventListener("click", () => {
+            if (sidebar.classList.contains("open")) {
+              closeFilters();
+            } else {
+              openFilters();
+            }
+          });
+        }
+
+        if (backdrop) {
+          backdrop.addEventListener("click", closeFilters);
+        }
+
+        const urlCategory = (new URLSearchParams(window.location.search).get("category") || "all").toLowerCase();
+        const hasMatchingButton = categoryOptions.some((option) => option.dataset.filter === urlCategory);
+        applyCategoryFilter(hasMatchingButton ? urlCategory : "all");
+        window.applyShopCategoryFilter = applyCategoryFilter;
+
+        closeFilters();
+      });
+    </script>
+    <script>
+      function openProductPage(id) {
+        window.location.href = "4.shop.html?id=" + id;
+      }
+    </script>
+    <script>
+      function scrollToProduct(image) {
+        const element = document.getElementById("product-" + image);
+
+        if (!element) return;
+
+        /* show products again */
+        document.getElementById("searchResults").innerHTML = "";
+        document
+          .querySelectorAll(".products-grid")
+          .forEach((g) => (g.style.display = ""));
+
+        /* smooth scroll */
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+
+        /* highlight */
+        element.style.boxShadow = "0 0 20px #4da3ff";
+        element.style.transform = "scale(1.05)";
+
+        setTimeout(() => {
+          element.style.boxShadow = "";
+          element.style.transform = "";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
+
+

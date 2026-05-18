@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /backend/
+
+Sitemap: https://www.romuyks.com/sitemap.xml

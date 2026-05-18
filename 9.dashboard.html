@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romuyks | Dashboard</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Manage your Romuyks account, profile, and recent activity from your dashboard." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.romuyks.com/9.dashboard.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Dashboard" />
+  <meta property="og:description" content="Manage your Romuyks account, profile, and recent activity from your dashboard." />
+  <meta property="og:url" content="https://www.romuyks.com/9.dashboard.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Dashboard" />
+  <meta name="twitter:description" content="Manage your Romuyks account, profile, and recent activity from your dashboard." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+    <link rel="stylesheet" href="E-commerce.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+        .dashboard-page {
+            position: relative;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 6% 12%, rgba(59, 21, 227, 0.22), transparent 30%),
+                radial-gradient(circle at 90% 84%, rgba(14, 165, 233, 0.14), transparent 30%),
+                linear-gradient(180deg, #04050d 0%, #090b15 52%, #060812 100%);
+        }
+
+        .dashboard-page::before,
+        .dashboard-page::after {
+            content: "";
+            position: fixed;
+            border-radius: 999px;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .dashboard-page::before {
+            width: 320px;
+            height: 320px;
+            left: -130px;
+            top: 120px;
+            background: rgba(59, 21, 227, 0.18);
+        }
+
+        .dashboard-page::after {
+            width: 360px;
+            height: 360px;
+            right: -130px;
+            bottom: 10px;
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .dashboard,
+        #adminDashboard,
+        footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dashboard {
+            animation: dashFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .dashboard-header {
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            background: linear-gradient(155deg, rgba(11, 14, 26, 0.92), rgba(8, 10, 20, 0.92));
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-avatar {
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.22), 0 0 28px rgba(79, 70, 229, 0.2);
+        }
+
+        .dashboard-grid .dashboard-card {
+            border: 1px solid rgba(99, 102, 241, 0.2) !important;
+            background: linear-gradient(165deg, rgba(10, 12, 24, 0.92), rgba(8, 10, 20, 0.9)) !important;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+            transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+            animation: dashFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .dashboard-grid .dashboard-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(129, 140, 248, 0.5) !important;
+            box-shadow: 0 22px 46px rgba(30, 64, 175, 0.22);
+        }
+
+        .dashboard-grid .dashboard-card:nth-child(1) { animation-delay: 0.06s; }
+        .dashboard-grid .dashboard-card:nth-child(2) { animation-delay: 0.12s; }
+        .dashboard-grid .dashboard-card:nth-child(3) { animation-delay: 0.18s; }
+        .dashboard-grid .dashboard-card:nth-child(4) { animation-delay: 0.24s; }
+
+        .dashboard-card .btn-primary {
+            border-radius: 12px;
+            min-height: 44px;
+            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .dashboard-card .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 30px rgba(79, 70, 229, 0.32);
+        }
+
+        .admin-stat-card,
+        .admin-tab-content {
+            border: 1px solid rgba(129, 140, 248, 0.2) !important;
+            background: linear-gradient(160deg, rgba(10, 12, 24, 0.95), rgba(8, 10, 20, 0.95)) !important;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+            animation: dashFadeUp 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .admin-stat-card {
+            transition: transform 0.22s ease, border-color 0.22s ease;
+        }
+
+        .admin-stat-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(129, 140, 248, 0.44) !important;
+        }
+
+        .admin-tabs {
+            border: 1px solid rgba(129, 140, 248, 0.22);
+            background: rgba(10, 12, 24, 0.86);
+            border-radius: 14px;
+            padding: 6px;
+        }
+
+        .admin-tab {
+            border-radius: 10px;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .admin-tab:hover {
+            transform: translateY(-1px);
+        }
+
+        @keyframes dashFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .dashboard,
+            .dashboard-grid .dashboard-card,
+            .admin-stat-card,
+            .admin-tab-content {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="dashboard-page text-slate-100 antialiased overflow-x-hidden">
+
+    <header>
+      <nav class="premium-nav nav-links">
+        <div class="nav-left">
+          <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+          <span class="logo-text">ROMUYKS</span>
+        </div>
+        <div class="nav-center">
+          <a href="1.index.html">Home</a>
+          <a href="3.products.html">Products</a>
+          <a href="4.shop.html">Shop</a>
+          <a href="2.about.html">About</a>
+          <a href="7.orders.html">Orders</a>
+        </div>
+        <div class="nav-right">
+          <a href="6.cart.html" class="nav-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </a>
+          <a href="9.dashboard.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ============================
+         USER DASHBOARD (non-admin)
+    ============================= -->
+    <section class="dashboard" id="userDashboard">
+
+        <div class="dashboard-header">
+            <div class="profile-box">
+                <div class="profile-avatar" id="headerAvatar"><i class="fa-solid fa-user" id="headerAvatarIcon"></i><img id="headerAvatarImg" src="" style="display:none; width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>
+                <div>
+                    <h1 id="welcomeUser">Welcome, Loading...</h1>
+                    <p>Manage your account and orders</p>
+                </div>
+            </div>
+            <a href="#" id="logoutBtn" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <i class="fa-solid fa-box"></i>
+                <h3>My Orders</h3>
+                <p>Track and manage your orders</p><br>
+                <a href="7.orders.html" class="btn-primary"><i class="fa-solid fa-box"></i> Go to Your Orders</a>
+            </div>
+            <div class="dashboard-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Wishlist</h3>
+                <p>Your saved favorite products</p><br>
+                <a href="wishlist.html" class="btn-primary"><i class="fa-solid fa-heart"></i> View Wishlist</a>
+            </div>
+            <div class="dashboard-card">
+                <i class="fa-solid fa-user-gear"></i>
+                <h3>Profile Settings</h3>
+                <p>Edit name, email, password</p><br>
+                <a href="profile-settings.html" class="btn-primary"><i class="fa-solid fa-user-gear"></i> Edit Profile</a>
+            </div>
+            <div class="dashboard-card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>Contact Us</h3>
+                <p>Send us a message</p><br>
+                <a href="contact-page.html" class="btn-primary"><i class="fa-solid fa-headset"></i> Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGOUT CONFIRM MODAL -->
+    <div id="logoutModal" class="fixed inset-0 z-[9999] hidden items-center justify-center px-4 py-6 bg-black/70 backdrop-blur-sm">
+        <div class="w-full max-w-md rounded-3xl border border-white/10 bg-[#0b0a0f] shadow-[0_30px_100px_rgba(0,0,0,0.65)] overflow-hidden">
+            <div class="px-6 pt-6 pb-4 border-b border-white/5">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/15 text-red-400 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-right-from-bracket text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-2">Logout from account?</h3>
+                <p class="text-sm text-slate-400 leading-6">You will be signed out and sent back to the home page.</p>
+            </div>
+            <div class="px-6 py-5 flex flex-col sm:flex-row gap-3 sm:justify-end">
+                <button type="button" id="cancelLogoutBtn" class="h-12 px-5 rounded-xl border border-white/10 bg-white/5 text-slate-200 font-bold hover:bg-white/10 transition">
+                    Cancel
+                </button>
+                <button type="button" id="confirmLogoutBtn" class="h-12 px-5 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold hover:opacity-95 transition shadow-[0_18px_40px_rgba(239,68,68,0.25)]">
+                    Yes, Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================
+         ADMIN DASHBOARD
+    ============================= -->
+    <section id="adminDashboard" style="display:none; max-width:1200px; margin:100px auto 60px; padding:0 20px;">
+
+        <!-- Admin Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; flex-wrap:wrap; gap:15px;">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <div style="width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#dc2626,#f97316); display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff;">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h1 id="adminWelcome" style="font-size:24px; color:#f9fafb; margin:0;">Admin Panel</h1>
+                    <p style="color:#9ca3af; margin:0; font-size:14px;">Manage orders, users, and store operations</p>
+                </div>
+            </div>
+            <a href="#" id="adminLogoutBtn" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </div>
+
+        <!-- Stats Cards -->
+        <div id="adminStats" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:15px; margin-bottom:30px;">
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-indian-rupee-sign" style="color:#16a34a;"></i>
+                <div class="admin-stat-value" id="statRevenue">&#8377;0</div>
+                <div class="admin-stat-label">Revenue</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-box" style="color:#3b82f6;"></i>
+                <div class="admin-stat-value" id="statOrders">0</div>
+                <div class="admin-stat-label">Total Orders</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-clock" style="color:#f59e0b;"></i>
+                <div class="admin-stat-value" id="statPending">0</div>
+                <div class="admin-stat-label">Pending</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-circle-check" style="color:#16a34a;"></i>
+                <div class="admin-stat-value" id="statConfirmed">0</div>
+                <div class="admin-stat-label">Confirmed</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-users" style="color:#8b5cf6;"></i>
+                <div class="admin-stat-value" id="statUsers">0</div>
+                <div class="admin-stat-label">Users</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-cube" style="color:#06b6d4;"></i>
+                <div class="admin-stat-value" id="statProducts">0</div>
+                <div class="admin-stat-label">Products</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-envelope" style="color:#f472b6;"></i>
+                <div class="admin-stat-value" id="statMessages">0</div>
+                <div class="admin-stat-label">Messages</div>
+            </div>
+            <div class="admin-stat-card">
+                <i class="fa-solid fa-circle-xmark" style="color:#dc2626;"></i>
+                <div class="admin-stat-value" id="statRejected">0</div>
+                <div class="admin-stat-label">Rejected</div>
+            </div>
+        </div>
+
+        <!-- Admin Tabs -->
+        <div class="admin-tabs" id="adminTabs">
+            <button class="admin-tab active" data-tab="orders" onclick="switchAdminTab('orders')">
+                <i class="fa-solid fa-box"></i> Orders
+            </button>
+            <button class="admin-tab" data-tab="users" onclick="switchAdminTab('users')">
+                <i class="fa-solid fa-users"></i> Users
+            </button>
+            <button class="admin-tab" data-tab="messages" onclick="switchAdminTab('messages')">
+                <i class="fa-solid fa-envelope"></i> Messages
+            </button>
+        </div>
+
+        <!-- Tab Content: ORDERS -->
+        <div class="admin-tab-content" id="tabOrders">
+            <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+                <button class="admin-filter-btn active" data-filter="all" onclick="filterAdminOrders('all')">All</button>
+                <button class="admin-filter-btn" data-filter="Pending" onclick="filterAdminOrders('Pending')">Pending</button>
+                <button class="admin-filter-btn" data-filter="Confirmed" onclick="filterAdminOrders('Confirmed')">Confirmed</button>
+                <button class="admin-filter-btn" data-filter="Rejected" onclick="filterAdminOrders('Rejected')">Rejected</button>
+                <button class="admin-filter-btn" data-filter="payment:paid" onclick="filterAdminOrders('payment:paid')">Paid</button>
+                <button class="admin-filter-btn" data-filter="payment:pending" onclick="filterAdminOrders('payment:pending')">Payment Pending</button>
+                <button class="admin-filter-btn" data-filter="payment:failed" onclick="filterAdminOrders('payment:failed')">Payment Failed</button>
+            </div>
+            <div id="adminOrdersList"></div>
+        </div>
+
+        <!-- Tab Content: USERS -->
+        <div class="admin-tab-content" id="tabUsers" style="display:none;">
+            <div id="adminUsersList"></div>
+        </div>
+
+        <!-- Tab Content: MESSAGES -->
+        <div class="admin-tab-content" id="tabMessages" style="display:none;">
+            <div id="adminMessagesList"></div>
+        </div>
+
+    </section>
+
+        <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+        <!-- SCRIPTS -->
+    <script src="cart.js"></script>
+    <script>
+        let allAdminOrders = [];
+        let allAdminUsers = [];
+        let allAdminMessages = [];
+        let currentFilter = 'all';
+        let currentTab = 'orders';
+        let logoutRedirectTarget = '1.index.html';
+
+        const logoutModal = document.getElementById('logoutModal');
+        const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
+        const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
+
+        function openLogoutModal(target) {
+            logoutRedirectTarget = target || '1.index.html';
+            if (!logoutModal) return;
+            logoutModal.classList.remove('hidden');
+            logoutModal.classList.add('flex');
+        }
+
+        function closeLogoutModal() {
+            if (!logoutModal) return;
+            logoutModal.classList.add('hidden');
+            logoutModal.classList.remove('flex');
+        }
+
+        function performLogout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('cart');
+            if (typeof cart !== 'undefined') cart = [];
+            if (typeof updateCartCount === 'function') updateCartCount();
+            window.location.href = logoutRedirectTarget;
+        }
+
+        if (cancelLogoutBtn) {
+            cancelLogoutBtn.addEventListener('click', closeLogoutModal);
+        }
+
+        if (confirmLogoutBtn) {
+            confirmLogoutBtn.addEventListener('click', performLogout);
+        }
+
+        if (logoutModal) {
+            logoutModal.addEventListener('click', (event) => {
+                if (event.target === logoutModal) {
+                    closeLogoutModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeLogoutModal();
+            }
+        });
+
+        // === CONTACT FORM (moved to contact-page.html) ===
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('token');
+            if (!token) { window.location.href = '8.auth.html'; return; }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/profile', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (!response.ok) throw new Error('Could not fetch profile');
+
+                const data = await response.json();
+                const userName = data.user.name || data.user.username || 'User';
+
+                if (data.user.isAdmin) {
+                    // === ADMIN UI ===
+                    document.getElementById('userDashboard').style.display = 'none';
+                    document.getElementById('adminDashboard').style.display = 'block';
+                    document.getElementById('adminWelcome').textContent = 'Welcome, ' + userName;
+                    document.title = 'Roumyks | Admin Dashboard';
+
+                    loadAdminStats(token);
+                    loadAdminOrders(token);
+                    loadAdminUsers(token);
+                    loadAdminMessages(token);
+
+                    document.getElementById('adminLogoutBtn').addEventListener('click', (event) => {
+                        event.preventDefault();
+                        openLogoutModal('1.index.html');
+                    });
+                } else {
+                    // === USER UI ===
+                    document.getElementById('welcomeUser').textContent = 'Welcome, ' + userName;
+
+                    // Update header avatar if profile image exists
+                    if (data.user.profileImage) {
+                        const hImg = document.getElementById('headerAvatarImg');
+                        const hIcon = document.getElementById('headerAvatarIcon');
+                        if (hImg) { hImg.src = 'http://localhost:5000' + data.user.profileImage; hImg.style.display = 'block'; }
+                        if (hIcon) hIcon.style.display = 'none';
+                    }
+
+                    if (data.user.cart && data.user.cart.length > 0) {
+                        const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
+                        if (localCart.length === 0) {
+                            localStorage.setItem('cart', JSON.stringify(data.user.cart));
+                            if (typeof updateCartCount === 'function') updateCartCount();
+                        }
+                    }
+
+                    document.getElementById('logoutBtn').addEventListener('click', (event) => {
+                        event.preventDefault();
+                        openLogoutModal('1.index.html');
+                    });
+                }
+            } catch (error) {
+                console.error('Dashboard error:', error);
+                localStorage.removeItem('token');
+                window.location.href = '8.auth.html';
+            }
+        });
+
+        // ========== ADMIN TAB SWITCHING ==========
+        function switchAdminTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.admin-tab[data-tab="' + tab + '"]').classList.add('active');
+            document.querySelectorAll('.admin-tab-content').forEach(c => c.style.display = 'none');
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).style.display = 'block';
+        }
+
+        // ========== ADMIN STATS ==========
+        function animateCount(el, target, prefix) {
+            prefix = prefix || '';
+            let start = 0;
+            const duration = 800;
+            const startTime = performance.now();
+            function step(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(eased * target);
+                el.textContent = prefix + current.toLocaleString();
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = prefix + target.toLocaleString();
+            }
+            requestAnimationFrame(step);
+        }
+
+        async function loadAdminStats(token) {
+            try {
+                const res = await fetch('http://localhost:5000/api/auth/admin/stats', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (!res.ok) return;
+                const s = await res.json();
+                animateCount(document.getElementById('statRevenue'), s.totalRevenue || 0, '\u20B9');
+                animateCount(document.getElementById('statOrders'), s.totalOrders || 0);
+                animateCount(document.getElementById('statPending'), s.pendingOrders || 0);
+                animateCount(document.getElementById('statConfirmed'), s.confirmedOrders || 0);
+                animateCount(document.getElementById('statRejected'), s.rejectedOrders || 0);
+                animateCount(document.getElementById('statUsers'), s.totalUsers || 0);
+                animateCount(document.getElementById('statProducts'), s.totalProducts || 0);
+                animateCount(document.getElementById('statMessages'), s.totalMessages || 0);
+            } catch (err) { console.error('Stats error:', err); }
+        }
+
+        // ========== ADMIN ORDERS ==========
+        async function loadAdminOrders(token) {
+            try {
+                const res = await fetch('http://localhost:5000/api/orders/admin/all', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (!res.ok) return;
+                allAdminOrders = await res.json();
+                renderAdminOrders();
+            } catch (err) {
+                document.getElementById('adminOrdersList').innerHTML = '<p style="text-align:center;color:#6b7280;">Could not load orders.</p>';
+            }
+        }
+
+        function filterAdminOrders(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.admin-filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+            renderAdminOrders();
+        }
+
+        function renderAdminOrders() {
+            const container = document.getElementById('adminOrdersList');
+            let orders = allAdminOrders;
+
+            if (currentFilter !== 'all') {
+                if (currentFilter.startsWith('payment:')) {
+                    const expectedPaymentStatus = currentFilter.split(':')[1];
+                    orders = allAdminOrders.filter(o => String(o.paymentStatus || 'pending').toLowerCase() === expectedPaymentStatus);
+                } else {
+                    orders = allAdminOrders.filter(o => o.status === currentFilter);
+                }
+            }
+
+            if (!orders.length) {
+                container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No orders found.</p>';
+                return;
+            }
+
+            container.innerHTML = orders.map(order => {
+                const status = order.status || 'Pending';
+                const statusClass = status.toLowerCase();
+                const paymentStatus = String(order.paymentStatus || 'pending').toLowerCase();
+                const userName = order.user ? (order.user.name || order.user.email || 'Unknown') : 'Unknown';
+                const userEmail = order.user ? (order.user.email || '') : '';
+                const date = new Date(order.createdAt).toLocaleString();
+
+                let paymentBadgeStyle = 'background:rgba(245,158,11,0.15);color:#f59e0b;';
+                let paymentBadgeLabel = 'Pending';
+                if (paymentStatus === 'paid') {
+                    paymentBadgeStyle = 'background:rgba(22,163,74,0.15);color:#16a34a;';
+                    paymentBadgeLabel = 'Paid';
+                } else if (paymentStatus === 'failed') {
+                    paymentBadgeStyle = 'background:rgba(220,38,38,0.15);color:#dc2626;';
+                    paymentBadgeLabel = 'Failed';
+                }
+
+                const itemsHtml = (order.items || []).map(item => `
+                    <div style="display:flex;align-items:center;gap:12px;padding:8px;background:#020617;border-radius:10px;margin-bottom:6px;">
+                        <img src="imgs/${item.image}" alt="${item.name}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
+                        <div>
+                            <p style="font-weight:600;color:#e5e7eb;margin:0;">${item.name}</p>
+                            <p style="color:#9ca3af;margin:0;font-size:12px;">&#8377;${item.price} x ${item.quantity}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                const actionButtons = status === 'Pending' ? `
+                    <div style="display:flex;gap:10px;margin-top:15px;">
+                        <button onclick="confirmOrder('${order._id}')" class="admin-action-btn confirm-btn">&#10003; Confirm</button>
+                        <button onclick="rejectOrder('${order._id}')" class="admin-action-btn reject-btn">&#10007; Reject</button>
+                    </div>
+                ` : `<p style="margin-top:12px;font-weight:700;font-size:13px;color:${status === 'Confirmed' ? '#16a34a' : '#dc2626'};">
+                    ${status === 'Confirmed' ? '&#10003; Payment Verified' : '&#10007; Payment Rejected'}
+                </p>`;
+
+                return `
+                    <div class="admin-order-card">
+                        <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;">
+                            <div>
+                                <span class="order-status ${statusClass}">${status}</span>
+                                <span style="margin-left:8px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;${paymentBadgeStyle}">
+                                    Payment: ${paymentBadgeLabel}
+                                </span>
+                                <p style="color:#6b7280;font-size:11px;margin:8px 0 4px;">${date}</p>
+                                <p style="color:#e5e7eb;font-size:14px;"><strong>Customer:</strong> ${userName}</p>
+                                ${userEmail ? `<p style="color:#6b7280;font-size:12px;margin:0;">${userEmail}</p>` : ''}
+                            </div>
+                            <div style="text-align:right;">
+                                <p style="color:#6b7280;font-size:11px;word-break:break-all;">${order._id}</p>
+                                <p style="color:#e5e7eb;font-weight:800;font-size:18px;">&#8377;${order.totalAmount}</p>
+                                <p style="color:#9ca3af;font-size:12px;">${order.paymentMethod}</p>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px;">${itemsHtml}</div>
+                        ${actionButtons}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function confirmOrder(orderId) {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch('http://localhost:5000/api/orders/' + orderId + '/confirm', {
+                    method: 'PUT', headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (res.ok) {
+                    const idx = allAdminOrders.findIndex(o => o._id === orderId);
+                    if (idx !== -1) allAdminOrders[idx].status = 'Confirmed';
+                    renderAdminOrders();
+                    loadAdminStats(token);
+                }
+            } catch (err) { console.error('Confirm failed:', err); }
+        }
+
+        async function rejectOrder(orderId) {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch('http://localhost:5000/api/orders/' + orderId + '/reject', {
+                    method: 'PUT', headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (res.ok) {
+                    const idx = allAdminOrders.findIndex(o => o._id === orderId);
+                    if (idx !== -1) allAdminOrders[idx].status = 'Rejected';
+                    renderAdminOrders();
+                    loadAdminStats(token);
+                }
+            } catch (err) { console.error('Reject failed:', err); }
+        }
+
+        // ========== ADMIN USERS ==========
+        async function loadAdminUsers(token) {
+            try {
+                const res = await fetch('http://localhost:5000/api/auth/admin/users', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (!res.ok) return;
+                allAdminUsers = await res.json();
+                renderAdminUsers();
+            } catch (err) {
+                document.getElementById('adminUsersList').innerHTML = '<p style="text-align:center;color:#6b7280;">Could not load users.</p>';
+            }
+        }
+
+        function renderAdminUsers() {
+            const container = document.getElementById('adminUsersList');
+            if (!allAdminUsers.length) {
+                container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No users found.</p>';
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${allAdminUsers.map(u => `
+                                <tr>
+                                    <td style="font-weight:600;color:#e5e7eb;">${u.name}</td>
+                                    <td style="color:#9ca3af;">${u.email}</td>
+                                    <td style="color:#9ca3af;">${u.username || '-'}</td>
+                                    <td>
+                                        <span style="padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;
+                                            ${u.isAdmin ? 'background:rgba(239,68,68,0.15);color:#ef4444;' : 'background:rgba(59,130,246,0.15);color:#3b82f6;'}">
+                                            ${u.isAdmin ? 'Admin' : 'User'}
+                                        </span>
+                                    </td>
+                                    <td style="color:#6b7280;font-size:12px;">${new Date(u.createdAt).toLocaleDateString()}</td>
+                                    <td>
+                                        ${u.isAdmin ? '<span style="color:#6b7280;font-size:12px;">&mdash;</span>' :
+                                          `<button onclick="deleteUser('${u._id}')" style="padding:5px 12px;border:1px solid #dc2626;background:transparent;color:#dc2626;border-radius:8px;cursor:pointer;font-size:11px;font-weight:600;transition:0.2s;" onmouseover="this.style.background='#dc2626';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#dc2626'">Delete</button>`
+                                        }
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        async function deleteUser(userId) {
+            if (!confirm('Are you sure you want to delete this user?')) return;
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch('http://localhost:5000/api/auth/admin/users/' + userId, {
+                    method: 'DELETE', headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (res.ok) {
+                    allAdminUsers = allAdminUsers.filter(u => u._id !== userId);
+                    renderAdminUsers();
+                    loadAdminStats(token);
+                }
+            } catch (err) { console.error('Delete user failed:', err); }
+        }
+
+        // ========== ADMIN MESSAGES ==========
+        async function loadAdminMessages(token) {
+            try {
+                const res = await fetch('http://localhost:5000/api/auth/admin/messages', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (!res.ok) return;
+                allAdminMessages = await res.json();
+                renderAdminMessages();
+            } catch (err) {
+                document.getElementById('adminMessagesList').innerHTML = '<p style="text-align:center;color:#6b7280;">Could not load messages.</p>';
+            }
+        }
+
+        function renderAdminMessages() {
+            const container = document.getElementById('adminMessagesList');
+            if (!allAdminMessages.length) {
+                container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No messages found.</p>';
+                return;
+            }
+
+            container.innerHTML = allAdminMessages.map(msg => `
+                <div class="admin-message-card">
+                    <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+                        <div>
+                            <p style="color:#e5e7eb;font-weight:700;font-size:15px;margin:0;">${msg.name}</p>
+                            <p style="color:#6b7280;font-size:12px;margin:2px 0;">${msg.email}</p>
+                        </div>
+                        <p style="color:#6b7280;font-size:11px;margin:0;">${new Date(msg.createdAt).toLocaleString()}</p>
+                    </div>
+                    <p style="color:#d1d5db;font-size:14px;line-height:1.6;margin:0;padding:12px;background:#020617;border-radius:10px;">${msg.message}</p>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+
+</html>
+
+

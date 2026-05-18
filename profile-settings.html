@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romuyks | Profile Settings</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Update your Romuyks profile, preferences, and account settings." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.romuyks.com/profile-settings.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Profile Settings" />
+  <meta property="og:description" content="Update your Romuyks profile, preferences, and account settings." />
+  <meta property="og:url" content="https://www.romuyks.com/profile-settings.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Profile Settings" />
+  <meta name="twitter:description" content="Update your Romuyks profile, preferences, and account settings." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+    <link rel="stylesheet" href="E-commerce.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+        .profile-page-bg {
+            position: relative;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 8% 12%, rgba(59, 21, 227, 0.24), transparent 28%),
+                radial-gradient(circle at 95% 80%, rgba(16, 185, 129, 0.14), transparent 30%),
+                linear-gradient(180deg, #05060d 0%, #090b15 50%, #05070f 100%);
+        }
+
+        .profile-page-bg::before,
+        .profile-page-bg::after {
+            content: "";
+            position: fixed;
+            border-radius: 999px;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .profile-page-bg::before {
+            width: 300px;
+            height: 300px;
+            left: -120px;
+            top: 80px;
+            background: rgba(59, 21, 227, 0.2);
+        }
+
+        .profile-page-bg::after {
+            width: 360px;
+            height: 360px;
+            right: -120px;
+            bottom: 40px;
+            background: rgba(16, 185, 129, 0.12);
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .profile-back-link:hover {
+            color: #f4f4f5;
+            transform: translateX(-2px);
+        }
+
+        .profile-shell {
+            background: linear-gradient(160deg, rgba(13, 10, 26, 0.98), rgba(7, 9, 18, 0.98));
+            border: 1px solid rgba(139, 92, 246, 0.22);
+            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(14px);
+        }
+
+        .profile-form .profile-block {
+            border: 1px solid rgba(139, 92, 246, 0.16);
+            background: rgba(10, 12, 24, 0.72);
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+
+        .profile-form input,
+        .profile-form select {
+            border-color: #312a56 !important;
+            background: rgba(10, 10, 24, 0.92) !important;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .profile-form input:focus,
+        .profile-form select:focus {
+            border-color: #4f46e5 !important;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+            background: rgba(12, 14, 30, 0.96) !important;
+        }
+
+        .profile-form input[readonly] {
+            color: #cbd5e1 !important;
+            border-style: dashed;
+            background: rgba(10, 10, 24, 0.65) !important;
+        }
+
+        .profile-save-btn {
+            width: 100%;
+            min-height: 56px;
+            border: 0;
+            border-radius: 16px;
+            color: #f8fafc;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: linear-gradient(135deg, #312e81, #4f46e5 48%, #7c3aed);
+            box-shadow: 0 14px 30px rgba(59, 21, 227, 0.35);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .profile-save-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 38px rgba(59, 21, 227, 0.48);
+        }
+    </style>
+</head>
+
+<body class="profile-page-bg text-slate-100 antialiased overflow-x-hidden">
+
+    <header>
+      <nav class="premium-nav nav-links">
+        <div class="nav-left">
+          <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+          <span class="logo-text">ROMUYKS</span>
+        </div>
+        <div class="nav-center">
+          <a href="1.index.html">Home</a>
+          <a href="3.products.html">Products</a>
+          <a href="4.shop.html">Shop</a>
+          <a href="2.about.html">About</a>
+          <a href="7.orders.html">Orders</a>
+        </div>
+        <div class="nav-right">
+          <a href="6.cart.html" class="nav-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </a>
+          <a href="9.dashboard.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Back to Dashboard -->
+    <div class="profile-content max-w-3xl mx-auto mt-[100px] px-5">
+        <a href="9.dashboard.html" class="profile-back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+
+    <!-- EDIT PROFILE SECTION -->
+    <section id="profileSection" class="profile-content max-w-3xl mx-auto px-5 mt-4 mb-16">
+        <div class="profile-shell rounded-[28px] overflow-hidden">
+
+            <!-- Top banner gradient -->
+            <div class="h-28 bg-gradient-to-br from-[#3b15e3] via-[#5b2ff0] to-[#7c3aed] relative">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22%20fill%3D%22rgba(255%2C255%2C255%2C0.08)%22%2F%3E%3C%2Fsvg%3E')] opacity-60"></div>
+            </div>
+
+            <!-- Profile photo + info (overlapping banner) -->
+            <div class="px-8 pb-2 -mt-14 text-center relative z-10">
+                <div class="inline-block relative group">
+                    <div id="profileImagePreview"
+                         class="w-[108px] h-[108px] rounded-full border-4 border-[#0d0a1a] bg-[#1a172c] overflow-hidden flex items-center justify-center mx-auto shadow-xl ring-2 ring-[#3b15e3]/30">
+                        <i class="fa-solid fa-user text-4xl text-[#3b15e3]" id="profileImageIcon"></i>
+                        <img id="profileImgTag" src="" alt="" class="hidden w-full h-full object-cover">
+                    </div>
+                    <label for="profileImageInput"
+                           class="absolute bottom-1 right-1 w-8 h-8 rounded-full bg-[#16a34a] flex items-center justify-center cursor-pointer border-[3px] border-[#0d0a1a] shadow-lg hover:bg-[#15803d] transition-all hover:scale-110">
+                        <i class="fa-solid fa-camera text-[11px] text-white"></i>
+                    </label>
+                    <input type="file" id="profileImageInput" accept="image/*" class="hidden">
+                    <div class="absolute inset-0 w-[108px] h-[108px] rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none mx-auto">
+                        <i class="fa-solid fa-camera text-white/80 text-lg"></i>
+                    </div>
+                </div>
+                <h3 id="profileDisplayName" class="text-white text-xl font-bold mt-4 mb-0.5 tracking-tight">Loading...</h3>
+                <p id="profileDisplayEmail" class="text-gray-500 text-sm mb-0 font-medium">loading@email.com</p>
+                <span class="inline-flex items-center gap-1.5 mt-2.5 bg-[#3b15e3]/15 text-[#7c6aed] text-[10px] font-bold px-3 py-1 rounded-full border border-[#3b15e3]/20 uppercase tracking-widest">
+                    <i class="fa-solid fa-gem text-[8px]"></i> Member
+                </span>
+            </div>
+
+            <!-- Form Container -->
+            <div class="px-8 pt-6 pb-8">
+
+                <form id="profileEditForm" class="profile-form bg-transparent border-0 p-0 m-0 shadow-none" style="transform:none; transition:none;">
+
+                    <!-- Personal Information Section -->
+                    <div class="profile-block">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-7 h-7 rounded-lg bg-[#3b15e3]/15 flex items-center justify-center">
+                                <i class="fa-solid fa-user-pen text-[#3b15e3] text-[11px]"></i>
+                            </div>
+                            <h4 class="text-white text-[15px] font-bold m-0 tracking-tight">Personal Information</h4>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Full Name</label>
+                                <div class="relative">
+                                    <input type="text" id="profName" placeholder="Enter your name"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                    <i class="fa-solid fa-pen absolute right-4 top-1/2 -translate-y-1/2 text-[#3d3856] text-[11px]"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Email</label>
+                                <div class="relative">
+                                    <input type="email" id="profEmail" placeholder="Enter your email"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                    <i class="fa-solid fa-envelope absolute right-4 top-1/2 -translate-y-1/2 text-[#3d3856] text-[11px]"></i>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Country Code</label>
+                                    <input type="text" id="profCountryCode" placeholder="+91"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                </div>
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Mobile Number</label>
+                                    <input type="text" id="profMobileNumber" placeholder="Enter mobile number"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Gender</label>
+                                    <select id="profGender"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none focus:border-[#3b15e3] transition-colors m-0">
+                                        <option value="">Select gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">OTP Preference</label>
+                                    <select id="profOtpDeliveryPreference"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none focus:border-[#3b15e3] transition-colors m-0">
+                                        <option value="email">Email OTP</option>
+                                        <option value="sms">SMS OTP</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div class="profile-block">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-7 h-7 rounded-lg bg-[#f59e0b]/15 flex items-center justify-center">
+                                <i class="fa-solid fa-shield-halved text-[#f59e0b] text-[11px]"></i>
+                            </div>
+                            <h4 class="text-white text-[15px] font-bold m-0 tracking-tight">Security</h4>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Current Password</label>
+                                <div class="relative">
+                                    <input type="password" id="profOldPassword" placeholder="Enter current password"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0 pr-10">
+                                    <i class="fa-solid fa-eye-slash absolute right-4 top-1/2 -translate-y-1/2 text-[#3d3856] text-xs cursor-pointer hover:text-gray-400 transition" onclick="togglePwVisibility('profOldPassword', this)"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">New Password</label>
+                                <div class="relative">
+                                    <input type="password" id="profNewPassword" placeholder="Enter new password"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0 pr-10">
+                                    <i class="fa-solid fa-eye-slash absolute right-4 top-1/2 -translate-y-1/2 text-[#3d3856] text-xs cursor-pointer hover:text-gray-400 transition" onclick="togglePwVisibility('profNewPassword', this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Section -->
+                    <div class="profile-block">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-7 h-7 rounded-lg bg-[#16a34a]/15 flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot text-[#16a34a] text-[11px]"></i>
+                            </div>
+                            <h4 class="text-white text-[15px] font-bold m-0 tracking-tight">Address</h4>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Street Address</label>
+                                <div class="relative">
+                                    <input type="text" id="profStreetAddress" placeholder="House number, street, area"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                    <i class="fa-solid fa-pen absolute right-4 top-1/2 -translate-y-1/2 text-[#3d3856] text-[11px]"></i>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Country</label>
+                                    <input type="text" id="profCountry" placeholder="Country"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                </div>
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">State</label>
+                                    <input type="text" id="profState" placeholder="State"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">City</label>
+                                    <input type="text" id="profDistrict" placeholder="City"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                </div>
+                                <div>
+                                    <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Pincode</label>
+                                    <input type="text" id="profPincode" placeholder="Pincode"
+                                        class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white text-[14px] font-medium outline-none placeholder-[#3d3856] focus:border-[#3b15e3] transition-colors m-0">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="text-[#7c8ba1] text-[11px] font-semibold uppercase tracking-widest mb-2 block">Combined Address</label>
+                                <input type="text" id="profAddress" placeholder="Auto generated from address fields"
+                                    class="w-full bg-[#0c0a18] border border-[#2b254a] rounded-xl px-4 py-3.5 text-white/80 text-[14px] font-medium outline-none placeholder-[#3d3856] m-0" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Update Button -->
+                    <button type="submit" id="profileUpdateBtn" class="profile-save-btn relative overflow-hidden group">
+                        <span class="relative z-10 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check text-sm"></i> Update Profile
+                        </span>
+                    </button>
+                </form>
+
+                <div id="profileUpdateMsg" class="hidden mt-4 text-center py-3 px-4 rounded-xl text-sm font-semibold border" style="display:none;"></div>
+            </div>
+        </div>
+    </section>
+
+        <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+        <!-- SCRIPTS -->
+    <script src="cart.js"></script>
+    <script>
+        // Auth check
+        document.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('token');
+            if (!token) { window.location.href = '8.auth.html'; return; }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/profile', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                if (!response.ok) throw new Error('Could not fetch profile');
+                const data = await response.json();
+                loadProfileFields(data.user);
+            } catch (error) {
+                console.error('Profile error:', error);
+                localStorage.removeItem('token');
+                window.location.href = '8.auth.html';
+            }
+        });
+
+        function loadProfileFields(user) {
+            const nameEl = document.getElementById('profName');
+            const emailInputEl = document.getElementById('profEmail');
+            const emailEl = document.getElementById('profileDisplayEmail');
+            const displayNameEl = document.getElementById('profileDisplayName');
+            const countryCodeEl = document.getElementById('profCountryCode');
+            const mobileNumberEl = document.getElementById('profMobileNumber');
+            const genderEl = document.getElementById('profGender');
+            const otpDeliveryPreferenceEl = document.getElementById('profOtpDeliveryPreference');
+            const streetAddressEl = document.getElementById('profStreetAddress');
+            const countryEl = document.getElementById('profCountry');
+            const stateEl = document.getElementById('profState');
+            const districtEl = document.getElementById('profDistrict');
+            const pincodeEl = document.getElementById('profPincode');
+            const addressEl = document.getElementById('profAddress');
+            const imgTag = document.getElementById('profileImgTag');
+            const imgIcon = document.getElementById('profileImageIcon');
+
+            if (nameEl) nameEl.value = user.name || '';
+            if (emailInputEl) emailInputEl.value = user.email || '';
+            if (emailEl) emailEl.textContent = user.email || '';
+            if (displayNameEl) displayNameEl.textContent = user.name || 'User';
+            if (countryCodeEl) countryCodeEl.value = user.countryCode || '+91';
+            if (mobileNumberEl) mobileNumberEl.value = user.mobileNumber || '';
+            if (genderEl) genderEl.value = user.gender || '';
+            if (otpDeliveryPreferenceEl) otpDeliveryPreferenceEl.value = user.otpDeliveryPreference || 'email';
+            if (streetAddressEl) streetAddressEl.value = user.streetAddress || '';
+            if (countryEl) countryEl.value = user.country || '';
+            if (stateEl) stateEl.value = user.state || '';
+            if (districtEl) districtEl.value = user.district || '';
+            if (pincodeEl) pincodeEl.value = user.pincode || '';
+            if (addressEl) addressEl.value = user.address || '';
+            updateCombinedAddress();
+
+            if (user.profileImage) {
+                imgTag.src = 'http://localhost:5000' + user.profileImage;
+                imgTag.style.display = 'block';
+                imgTag.classList.remove('hidden');
+                imgIcon.style.display = 'none';
+            }
+        }
+
+        // Profile image upload
+        document.addEventListener('DOMContentLoaded', () => {
+            [
+                'profStreetAddress',
+                'profDistrict',
+                'profState',
+                'profCountry',
+                'profPincode'
+            ].forEach((fieldId) => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('input', updateCombinedAddress);
+                }
+            });
+
+            const imgInput = document.getElementById('profileImageInput');
+            if (imgInput) {
+                imgInput.addEventListener('change', async () => {
+                    const file = imgInput.files[0];
+                    if (!file) return;
+                    const token = localStorage.getItem('token');
+                    if (!token) return;
+
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const imgTag = document.getElementById('profileImgTag');
+                        const imgIcon = document.getElementById('profileImageIcon');
+                        imgTag.src = e.target.result;
+                        imgTag.style.display = 'block';
+                        imgTag.classList.remove('hidden');
+                        imgIcon.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+
+                    const formData = new FormData();
+                    formData.append('profileImage', file);
+                    try {
+                        const res = await fetch('http://localhost:5000/api/auth/profile/image', {
+                            method: 'POST',
+                            headers: { 'Authorization': 'Bearer ' + token },
+                            body: formData
+                        });
+                        const data = await res.json();
+                        if (res.ok) {
+                            showProfileMsg('Profile image updated!', '#4ade80');
+                        } else {
+                            showProfileMsg(data.message || 'Upload failed', '#ef4444');
+                        }
+                    } catch (err) {
+                        showProfileMsg('Server error', '#ef4444');
+                    }
+                });
+            }
+
+            // Profile form submit
+            const profForm = document.getElementById('profileEditForm');
+            if (profForm) {
+                profForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const token = localStorage.getItem('token');
+                    if (!token) return;
+
+                    const body = {
+                        name: document.getElementById('profName').value,
+                        email: document.getElementById('profEmail').value,
+                        countryCode: document.getElementById('profCountryCode').value,
+                        mobileNumber: document.getElementById('profMobileNumber').value,
+                        gender: document.getElementById('profGender').value,
+                        otpDeliveryPreference: document.getElementById('profOtpDeliveryPreference').value,
+                        streetAddress: document.getElementById('profStreetAddress').value,
+                        country: document.getElementById('profCountry').value,
+                        state: document.getElementById('profState').value,
+                        district: document.getElementById('profDistrict').value,
+                        pincode: document.getElementById('profPincode').value,
+                        address: updateCombinedAddress()
+                    };
+
+                    const oldPw = document.getElementById('profOldPassword').value;
+                    const newPw = document.getElementById('profNewPassword').value;
+                    if (oldPw && newPw) {
+                        body.oldPassword = oldPw;
+                        body.newPassword = newPw;
+                    }
+
+                    try {
+                        const res = await fetch('http://localhost:5000/api/auth/profile', {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + token
+                            },
+                            body: JSON.stringify(body)
+                        });
+                        const data = await res.json();
+                        if (res.ok) {
+                            showProfileMsg('Profile updated successfully!', '#4ade80');
+                            document.getElementById('profileDisplayName').textContent = data.user.name;
+                            document.getElementById('profileDisplayEmail').textContent = data.user.email;
+                            document.getElementById('profAddress').value = data.user.address || '';
+                            document.getElementById('profOldPassword').value = '';
+                            document.getElementById('profNewPassword').value = '';
+                        } else {
+                            showProfileMsg(data.message || 'Update failed', '#ef4444');
+                        }
+                    } catch (err) {
+                        showProfileMsg('Server error', '#ef4444');
+                    }
+                });
+            }
+        });
+
+        function showProfileMsg(msg, color) {
+            const el = document.getElementById('profileUpdateMsg');
+            if (!el) return;
+            el.textContent = msg;
+            el.className = 'mt-4 text-center py-3 px-4 rounded-xl text-sm font-semibold border';
+            if (color === '#4ade80') {
+                el.style.cssText = 'display:block; color:#4ade80; background:#16a34a15; border-color:#16a34a30;';
+            } else {
+                el.style.cssText = 'display:block; color:#ef4444; background:#ef444415; border-color:#ef444430;';
+            }
+            setTimeout(() => { el.style.display = 'none'; }, 3000);
+        }
+
+        function updateCombinedAddress() {
+            const streetAddress = (document.getElementById('profStreetAddress')?.value || '').trim();
+            const district = (document.getElementById('profDistrict')?.value || '').trim();
+            const state = (document.getElementById('profState')?.value || '').trim();
+            const country = (document.getElementById('profCountry')?.value || '').trim();
+            const pincode = (document.getElementById('profPincode')?.value || '').trim();
+
+            const combinedAddress = [streetAddress, district, state, country, pincode]
+                .filter(Boolean)
+                .join(', ');
+
+            const addressField = document.getElementById('profAddress');
+            if (addressField) {
+                addressField.value = combinedAddress;
+            }
+
+            return combinedAddress;
+        }
+
+        function togglePwVisibility(inputId, iconEl) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            if (input.type === 'password') {
+                input.type = 'text';
+                iconEl.classList.remove('fa-eye-slash');
+                iconEl.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                iconEl.classList.remove('fa-eye');
+                iconEl.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+

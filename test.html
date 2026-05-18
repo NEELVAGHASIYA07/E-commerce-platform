@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Romuyks | Test Page</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Romuyks test and preview page." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.romuyks.com/test.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Test Page" />
+  <meta property="og:description" content="Romuyks test and preview page." />
+  <meta property="og:url" content="https://www.romuyks.com/test.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Test Page" />
+  <meta name="twitter:description" content="Romuyks test and preview page." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="E-commerce.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b11d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0b0a0f",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .glass-header {
+            background: rgba(11, 10, 15, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(43, 17, 212, 0.15) 0%, rgba(11, 10, 15, 0) 70%);
+        }
+
+        .product-card-hover:hover {
+            box-shadow: 0 0 20px rgba(43, 17, 212, 0.2);
+            border-color: rgba(43, 17, 212, 0.4);
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-header {
+            background: rgba(11, 10, 15, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+    <!-- Sticky Glassmorphism Header -->
+    <header>
+        <nav class="premium-nav  nav-links">
+            <!-- LEFT: LOGO -->
+            <div class="nav-left">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="logo-text">ROMUYKS</span>
+            </div>
+
+            <!-- CENTER: MENU -->
+            <div class="nav-center">
+                <a href="1.index.html">Home</a>
+                <a href="3.products.html">Products</a>
+                <a href="4.shop.html">Shop</a>
+                <a href="2.about.html">About</a>
+                <a href=\"7.orders.html\">Orders</a>
+            </div>
+
+            <!-- RIGHT: ICONS -->
+            <div class="nav-right">
+                <a href="6.cart.html" class="nav-cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </a>
+
+                <a href="8.auth.html">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+            <div class="absolute inset-0 hero-glow z-0"></div>
+
+            <!-- Decorative Light Streaks -->
+            <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            Next-Gen Arrival
+                        </div>
+                        <h1 class="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter uppercase">
+                            Future.<br /><span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Defined.</span>
+                        </h1>
+                        <p class="text-lg text-slate-400 max-w-md leading-relaxed">
+                            Experience the next generation of electronics. Precision engineering meets minimalist design
+                            for the modern minimalist.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button
+                                class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-widest flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(43,17,212,0.4)]">
+                                Shop Electric Now
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                            <button
+                                class="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-widest transition-all">
+                                Explore R-Series
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-4 bg-primary/20 blur-3xl opacity-30 rounded-full group-hover:opacity-50 transition-opacity">
+                        </div>
+                        <img alt="Futuristic Headphone Display"
+                            class="relative w-full h-auto object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700"
+                            data-alt="Futuristic black matte headphones glowing with blue light"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6pMkk_mWiU3NDLHBKVVdf2uzi57DveZJ4us8CeuQ-r-240-Ky5KwQYWM1QfHvIixyMxW1FC_K_py4nsxn-p6mCOv6uz8Wp2ug3cFXAucLHCNj4CP2Wn7SlUynwOG7VIBwCcNSdOIvQZDt3Fay1veSwia1mhRchjbJqh2D9UR8ZLPX3WxcKkI1jbopN5aU6K2Xz1Ix0paMs9ihtbdq0hXKqQd_Qa_zu3usaFF2fX2XW2wx3XRSojcAVJzfCNQKFvOQosrgFSA3ZL8" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Badges -->
+        <section class="border-y border-white/5 bg-white/[0.02] py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="flex items-center gap-4 group">
+                        <div
+                            class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                            <span class="material-symbols-outlined text-primary">local_shipping</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-white">Free Shipping</p>
+                            <p class="text-[10px] text-slate-500 uppercase">On orders over $250</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 group">
+                        <div
+                            class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                            <span class="material-symbols-outlined text-primary">support_agent</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-white">24/7 Support</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Expert assistance</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 group">
+                        <div
+                            class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                            <span class="material-symbols-outlined text-primary">encrypted</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-white">Secure Payment</p>
+                            <p class="text-[10px] text-slate-500 uppercase">100% encrypted</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 group">
+                        <div
+                            class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                            <span class="material-symbols-outlined text-primary">workspace_premium</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-white">Elite Warranty</p>
+                            <p class="text-[10px] text-slate-500 uppercase">2-year coverage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Categories Grid -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl font-black uppercase tracking-tighter text-white">Core Categories</h2>
+                        <p class="text-slate-500 mt-2">Engineered for every facet of modern life.</p>
+                    </div>
+                    <a class="text-primary text-xs font-bold uppercase tracking-widest hover:underline" href="#">View
+                        All Collections</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Category 1 -->
+                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer">
+                        <img alt="Smart Home Tech"
+                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="Minimalist smart home control panel on wall"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3RPz5FfQJOuhYZx7k8v7Es2Ok6mdLzUwothDaD-VVMtmdWnkhAwQh9fs9USxV0Po8Y8FX8J3_ZIZ3MhK5DJ5fU_tmL586OY59K1T_GEiIAC3iEzKc3u14WqjlgfNNuV2PN9eR9yJ06pCT-tdzwvxGXE50njr-L8129PjRPqMbOj7uQjpk0y3jxTYdbhAqX9fSEUlFwpcrmqnk8P01KQ-_ywf6Loj4NSPT85mQHSYZTkaa7de0RinwQrMAXigTgihUwDd2JAnGuVA" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Automate</p>
+                            <h3 class="text-xl font-bold text-white uppercase italic">Smart Home</h3>
+                        </div>
+                    </div>
+                    <!-- Category 2 -->
+                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer">
+                        <img alt="Electric Mobility"
+                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="Sleek black electric scooter in dark studio"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz9xw-oMzhxTxSIxqZQcTYVmiyEcAgF6-p_L0Kl99LliOR2oH-C6b-51whZed7Vc1ftU9MGRYNTdE4iboPdBe0gqca8hOYFFk068h9yQz2nMh1pjEb3bxYuEIHdqnlUrlg8Oo-k-fs9YzpzH7cc1haWre6AOxjAgEtMcysj395YPBSfcaXf3pVzobtW_1uGm3doe4B8s5ISMW5iDFNmfklBv0dCnXQ_6ADq1JKvv8OsuhUSUh_AWIOTW4z2TwQpN77_lzzgZbek5E" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Movement</p>
+                            <h3 class="text-xl font-bold text-white uppercase italic">Electric Mobility</h3>
+                        </div>
+                    </div>
+                    <!-- Category 3 -->
+                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer">
+                        <img alt="Audio"
+                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="High-end wireless speakers with wood finish"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3tXwuVTlT3zy7o5UoMKMOygcgTovMpsZthtt4hWIP1APjSNjZQYr1qnVn79ewy9VyTxQrGgS_HrMt6ePcy3418AkwALKi4tD_n5hZ7hGViSbDHj_Bux0a-Y7k1em_H6veO_v90Xz-U8IJYzaqxJbOIQZ8aB-MzQd31-UDzreeBZhVuc5AlTuwtQ-lGCOUVjuGl_6ndoNd4Sw0txJc9nwKzYECQpidDBFLk_7tjxJqIK-zZfh6hPLJf1DuVM9Ibg9r4jCYDPPZdg4" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Sound</p>
+                            <h3 class="text-xl font-bold text-white uppercase italic">Premium Audio</h3>
+                        </div>
+                    </div>
+                    <!-- Category 4 -->
+                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer">
+                        <img alt="Gadgets"
+                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            data-alt="Modern tech gadgets like smartwatches and drones"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI_rrFT3yZVzpFZSUV4HWDCtBqyEXUQ26GHpyjmJFcGjAOFTAGrXqehslYXV4zmwJ6EZqgeupCAeyVhXN6M7O6VR2-9UNuUMaQ5WIM3nVFI_Oi8H6KcKL_5gTqj54GginmQiJE_0cHDxLegxdsi__4IY7RySYPPVEWXvf6m8YVyCbgY31ks9ScUFfF9YVm68ZP-G_cK1PKR5MMReGnSJIUTIyDwN5r452vY_65L7371KaBLE4tFztBoUy8XgyFOXzQCi6iJozKL9o" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Essential</p>
+                            <h3 class="text-xl font-bold text-white uppercase italic">Daily Gadgets</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trending Products Carousel -->
+        <section class="py-24 bg-white/[0.01]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-12">
+                    <h2 class="text-3xl font-black uppercase tracking-tighter text-white">Trending Now</h2>
+                    <div class="flex gap-2">
+                        <button
+                            class="size-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-primary/20 hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-sm">chevron_left</span>
+                        </button>
+                        <button
+                            class="size-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-primary/20 hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Product Card 1 -->
+                    <div
+                        class="group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+                            <img alt="Smart Watch"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Matte black smartwatch on a dark surface"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiJMI31HEQjnjb38iHUikPnIIFGO9lERpZ9XcftS9OxkZ95P-37cQaT_gX0cw-YCpeP8aS0AY_FeyjGPyDYRmb9XnNYei0lmDVvK_FZyk52HTvnDfy-slCzWZX_zwWkUOt15VfRZyW9yrFOlQTr6I8LAAwP8A2i9t6oRiLNCFjClywF1ChF5Yj64k67yNKTMg-UbZ9JGVbETZFFRDbLrb3lGJu3NHcQmh968ZLN6IwPr0dm9dSO1xf7AaOpnTckeCeMZu-wphyv_8" />
+                            <button
+                                class="absolute bottom-4 right-4 bg-primary text-white size-10 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-bold text-primary uppercase tracking-widest">ROMUYKS LABS</p>
+                            <h4 class="text-white font-bold group-hover:text-primary transition-colors">Nova Watch
+                                Series 4</h4>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-white font-black">$349.00</span>
+                                <span class="text-[10px] text-green-500 font-bold uppercase">In Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div
+                        class="group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+                            <img alt="Earbuds"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="High-end true wireless earbuds in charging case"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU3LSiqEwyH5-q4PFVPaFjN9pE-3TsEKYrCdxnjwVcvFOLZzxeA2FacXMdZZoSJ59adZ04ul2bmvncZiIfJusU9nRVCYHGJopf4-rhy9FLw9FoqIPSfs_oqJdla2kDJticfu7ENDVJ4a3YJtzdrD8jzI284oxtuUEWRda3Bscyn2GzzY-KEFtcz-oQODp9ByNaW7AFS0C8ToheiD11aQxBaKSUHfQt-u7yAP4OkJZMEBp5rpv63HUsETUNl23utQRXMvkQdKTB0KM" />
+                            <button
+                                class="absolute bottom-4 right-4 bg-primary text-white size-10 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-bold text-primary uppercase tracking-widest">AUDIO CORE</p>
+                            <h4 class="text-white font-bold group-hover:text-primary transition-colors">Sonic Buds Pro
+                            </h4>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-white font-black">$199.00</span>
+                                <span class="text-[10px] text-slate-500 font-bold uppercase">Limited</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div
+                        class="group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+                            <img alt="Instant Camera"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Modern minimalist instant camera in obsidian black"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4YQVQw5iR52d2_4MQdVrEmu0qZ43CZUk8iz0DSdOAFBs3FaB_8q6hx_ARFn3iANLQcDPAkVvgtOn0J3sMyIi5e-wSUSjEL0MymoiEjVZChTwUQZK53lqlW0O54rII9UnSSgtJuM4SpMOucB6HNX9YyGQ7C93jt2HZ1vqgMN3m_EY8YeLV96qKGpJgR4WclzrZzrGkUBjYsXXxiQWc07NCbth9MoytjkBiAZT9HzruIPgTm4wofuilPkBhjZUT87iQel_1jpyK-GA" />
+                            <button
+                                class="absolute bottom-4 right-4 bg-primary text-white size-10 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-bold text-primary uppercase tracking-widest">OPTIC X</p>
+                            <h4 class="text-white font-bold group-hover:text-primary transition-colors">Phase One Camera
+                            </h4>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-white font-black">$599.00</span>
+                                <span class="text-[10px] text-green-500 font-bold uppercase">Best Seller</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div
+                        class="group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300">
+                        <div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+                            <img alt="Gaming Console"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Next generation sleek black gaming console"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC55kbKMUkvswflnLL-nbP_2n0HDgiNMK609WNraxA8XyyNzbzyEKDlrNFQA55-J_B66OoDxYuxAK3ZTyo0oNznJFUyKAcF0zx2Dq-0oGUmPLP3b1o5dWxCN4rFkohzp_t914uq6hTZlVInb2vfr8McQ88H0sQ6ZeQiNxghV4xEB9XfyYfXIEQBPVB8Rm7cwlwfz8SBnvlcJMR5DTt0tJoUs1T5tJerbZtUlcNyAKrKjlLUWoKKosYR9X8XZZx0YL7jffT1XFS73Mo" />
+                            <button
+                                class="absolute bottom-4 right-4 bg-primary text-white size-10 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-bold text-primary uppercase tracking-widest">ENTERTAINMENT</p>
+                            <h4 class="text-white font-bold group-hover:text-primary transition-colors">Onyx Console G2
+                            </h4>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-white font-black">$499.00</span>
+                                <span class="text-[10px] text-green-500 font-bold uppercase">In Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section class="py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="relative overflow-hidden rounded-3xl bg-primary px-8 py-16 text-center shadow-[0_20px_50px_rgba(43,17,212,0.3)]">
+                    <div
+                        class="absolute inset-0 opacity-10 z-0 bg-[radial-gradient(circle_at_center,_#fff_1px,_transparent_1px)] bg-[length:24px_24px]">
+                    </div>
+                    <h2 class="text-4xl font-black text-white uppercase tracking-tighter mb-4 relative z-10">Join the
+                        Collective</h2>
+                    <p class="text-white max-w-lg mx-auto mb-10 relative z-10">Sign up for early access to drops,
+                        exclusive discounts, and future tech updates. Join 50k+ tech enthusiasts.</p>
+
+                    <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto relative z-10">
+                        <input
+                            class="flex-1 bg-white/10 border-white/20 rounded-lg px-6 py-4 text-white placeholder:text-white/60 focus:ring-2 focus:ring-white/50 border-none"
+                            placeholder="Enter your email" type="email" />
+                        <button
+                            class="bg-white text-primary px-8 py-4 rounded-lg font-bold uppercase tracking-widest hover:bg-slate-100 transition-colors">Join
+                            Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+
+

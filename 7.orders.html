@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romuyks | Orders</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Track and manage your Romuyks orders, invoices, and delivery updates." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.romuyks.com/7.orders.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Orders" />
+  <meta property="og:description" content="Track and manage your Romuyks orders, invoices, and delivery updates." />
+  <meta property="og:url" content="https://www.romuyks.com/7.orders.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Orders" />
+  <meta name="twitter:description" content="Track and manage your Romuyks orders, invoices, and delivery updates." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+    <link rel="stylesheet" href="E-commerce.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2b11d4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#131022",
+              "card-dark": "#1f1f24",
+              "accent-dark": "#272b30",
+              "text-muted": "#d1d3d8"
+            }
+          }
+        }
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-[#0b0a0f] text-slate-100 antialiased overflow-x-hidden">
+    <header>
+      <nav class="premium-nav  nav-links">
+        <!-- LEFT: LOGO -->
+        <div class="nav-left">
+          <div class="logo-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <span class="logo-text">ROMUYKS</span>
+        </div>
+
+        <!-- CENTER: MENU -->
+        <div class="nav-center">
+          <a href="1.index.html">Home</a>
+          <a href="3.products.html">Products</a>
+          <a href="4.shop.html">Shop</a>
+          <a href="2.about.html">About</a>
+          <a href="7.orders.html">Orders</a>
+        </div>
+
+        <!-- RIGHT: ICONS -->
+        <div class="nav-right">
+          <a href="6.cart.html" class="nav-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </a>
+
+          <a href="8.auth.html">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="page-content max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10" style="padding-top:100px;">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <h2 class="text-4xl font-black text-white tracking-tight mb-2">Order History</h2>
+          <p class="text-gray-400">Manage your past purchases and track current shipments</p>
+        </div>
+        <div class="flex items-center gap-3 relative">
+          <span class="px-4 py-2 bg-accent-dark rounded-lg text-sm font-semibold border border-white/5">
+            <span class="text-primary" id="totalOrdersCount">0</span> Total Orders
+          </span>
+          <button class="flex items-center gap-2 px-4 py-2 bg-accent-dark hover:bg-white/10 rounded-lg text-sm font-medium transition-all border border-white/5" id="ordersFilterBtn" type="button">
+            <span class="material-symbols-outlined text-sm">filter_list</span>
+            <span id="ordersFilterBtnLabel">All Orders</span>
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+          <div class="hidden absolute right-0 top-full mt-3 w-56 rounded-2xl border border-white/10 bg-[#111827]/95 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.45)] p-2 z-30" id="ordersFilterMenu">
+            <p class="px-3 pt-2 pb-1 text-[11px] font-bold uppercase tracking-[0.22em] text-gray-500">Filter Orders</p>
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-left text-white hover:bg-white/5 transition-all order-filter-option" data-status="all" type="button">
+              <span>All Orders</span>
+              <span class="text-xs text-gray-400">View all</span>
+            </button>
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-left text-white hover:bg-white/5 transition-all order-filter-option" data-status="pending" type="button">
+              <span>Pending</span>
+              <span class="text-xs text-gray-400">Awaiting review</span>
+            </button>
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-left text-white hover:bg-white/5 transition-all order-filter-option" data-status="confirmed" type="button">
+              <span>Confirmed</span>
+              <span class="text-xs text-gray-400">Approved orders</span>
+            </button>
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-left text-white hover:bg-white/5 transition-all order-filter-option" data-status="rejected" type="button">
+              <span>Rejected</span>
+              <span class="text-xs text-gray-400">Declined orders</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-1 border-b border-white/10 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide" id="orderTabs">
+        <button class="px-6 py-3 text-sm font-bold border-b-2 border-primary text-white order-tab-btn" data-status="all" type="button">All Orders</button>
+        <button class="px-6 py-3 text-sm font-medium text-gray-500 hover:text-white transition-colors order-tab-btn" data-status="pending" type="button">Pending</button>
+        <button class="px-6 py-3 text-sm font-medium text-gray-500 hover:text-white transition-colors order-tab-btn" data-status="confirmed" type="button">Confirmed</button>
+        <button class="px-6 py-3 text-sm font-medium text-gray-500 hover:text-white transition-colors order-tab-btn" data-status="rejected" type="button">Rejected</button>
+      </div>
+
+      <div class="space-y-4" id="ordersList"></div>
+
+      <div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8">
+        <p class="text-sm text-gray-500" id="ordersRangeText">Showing 0 to 0 of 0 orders</p>
+        <div class="flex items-center gap-2">
+          <button class="h-10 w-10 flex items-center justify-center bg-accent-dark rounded-lg text-gray-400 hover:text-white border border-white/5 transition-all" id="ordersPrevBtn" type="button">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <div class="flex items-center gap-2" id="ordersPaginationNumbers"></div>
+          <button class="h-10 w-10 flex items-center justify-center bg-accent-dark rounded-lg text-gray-400 hover:text-white border border-white/5 transition-all" id="ordersNextBtn" type="button">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+    <!-- AI ASSISTANT -->
+    <div id="aiAssistant">
+      <div id="aiChat">
+        <div id="aiHeader">
+          Roumyks AI Assistant
+          <span onclick="toggleAI()">&times;</span>
+        </div>
+
+        <div id="aiMessages"></div>
+
+        <div id="aiInputBox">
+          <input type="text" id="aiInput" placeholder="Ask me anything..." />
+          <button onclick="sendAI()">Send</button>
+        </div>
+      </div>
+
+      <button id="aiBtn" onclick="toggleAI()" aria-label="Open AI chatbox"><img src="imgs/ai-chatbot-icon.jpeg" alt="AI chatbot icon" class="ai-btn-icon" /></button>
+    </div>
+    <script src="ai-assistant.js"></script>
+    <script src="order.js"></script>
+  </body>
+</html>
+
+
+

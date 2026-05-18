@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romuyks | Wishlist</title>
+  <!-- SEO META START -->
+  <meta name="description" content="View and manage products saved to your Romuyks wishlist." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.romuyks.com/wishlist.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Wishlist" />
+  <meta property="og:description" content="View and manage products saved to your Romuyks wishlist." />
+  <meta property="og:url" content="https://www.romuyks.com/wishlist.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Wishlist" />
+  <meta name="twitter:description" content="View and manage products saved to your Romuyks wishlist." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+    <link rel="stylesheet" href="E-commerce.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-[#0b0a0f] text-slate-100 antialiased overflow-x-hidden">
+
+    <header>
+      <nav class="premium-nav nav-links">
+        <div class="nav-left">
+          <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+          <span class="logo-text">ROMUYKS</span>
+        </div>
+        <div class="nav-center">
+          <a href="1.index.html">Home</a>
+          <a href="3.products.html">Products</a>
+          <a href="4.shop.html">Shop</a>
+          <a href="2.about.html">About</a>
+          <a href="7.orders.html">Orders</a>
+        </div>
+        <div class="nav-right">
+          <a href="6.cart.html" class="nav-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </a>
+          <a href="9.dashboard.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Back to Dashboard -->
+    <div style="max-width:900px; margin:100px auto 0; padding:0 20px;">
+        <a href="9.dashboard.html" style="display:inline-flex; align-items:center; gap:8px; color:#9ca3af; text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#9ca3af'">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+
+    <!-- Wishlist Section -->
+    <section style="max-width:900px; margin:20px auto 60px; padding:0 20px;">
+        <div style="text-align:center; margin-bottom:30px;">
+            <i class="fa-solid fa-heart" style="font-size:36px; color:#ef4444; margin-bottom:12px;"></i>
+            <h2 style="color:#f9fafb; font-size:24px; font-weight:700; margin:0 0 6px;">My Wishlist</h2>
+            <p style="color:#9ca3af; font-size:14px; margin:0;">Products you've saved for later.</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="wishlistEmpty" style="display:none; text-align:center; padding:60px 20px;">
+            <i class="fa-regular fa-heart" style="font-size:48px; color:#2b254a; margin-bottom:16px;"></i>
+            <p style="color:#6b7280; font-size:16px; margin:0 0 8px;">Your wishlist is empty</p>
+            <p style="color:#4b5563; font-size:14px; margin:0 0 20px;">Browse our shop and tap the heart icon to save products.</p>
+            <a href="4.shop.html" style="display:inline-block; padding:12px 28px; background:#3b15e3; color:#fff; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; transition:background 0.3s;" onmouseover="this.style.background='#4f2cf7'" onmouseout="this.style.background='#3b15e3'">
+                <i class="fa-solid fa-bag-shopping"></i> Go to Shop
+            </a>
+        </div>
+
+        <!-- Wishlist Grid -->
+        <div id="wishlistGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:20px;"></div>
+    </section>
+
+        <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+        <script src="cart.js"></script>
+    <script>
+        function getWishlist() {
+            return JSON.parse(localStorage.getItem('wishlist') || '[]');
+        }
+        function saveWishlist(list) {
+            localStorage.setItem('wishlist', JSON.stringify(list));
+        }
+
+        function renderWishlist() {
+            const wishlist = getWishlist();
+            const grid = document.getElementById('wishlistGrid');
+            const empty = document.getElementById('wishlistEmpty');
+
+            if (!wishlist.length) {
+                grid.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+
+            empty.style.display = 'none';
+            grid.innerHTML = wishlist.map((item, idx) => `
+                <div style="background:linear-gradient(180deg,#0b0f19,#020617); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.6); position:relative;">
+                    <!-- Remove button -->
+                    <button onclick="removeFromWishlist(${idx})" title="Remove from Wishlist"
+                        style="position:absolute; top:12px; right:12px; z-index:10; width:34px; height:34px; border-radius:50%; border:none; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); color:#ef4444; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.25s; box-shadow:0 2px 8px rgba(0,0,0,0.3);"
+                        onmouseover="this.style.background='rgba(239,68,68,0.2)'; this.style.transform='scale(1.15)'"
+                        onmouseout="this.style.background='rgba(0,0,0,0.55)'; this.style.transform='scale(1)'">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <img src="imgs/${item.image}" alt="${item.name}" style="width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block; border-radius:16px 16px 0 0;">
+                    <div style="padding:16px;">
+                        <h3 style="color:#e5e7eb; font-size:16px; font-weight:700; margin:0 0 6px;">${item.name}</h3>
+                        <div style="color:#3b82f6; font-size:18px; font-weight:800; margin:0 0 14px;">&#8377;${item.price}</div>
+                        <div style="display:flex; gap:10px;">
+                            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                                style="flex:1; padding:10px; border:none; background:#3b15e3; color:#fff; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer; transition:background 0.3s;"
+                                onmouseover="this.style.background='#4f2cf7'" onmouseout="this.style.background='#3b15e3'">
+                                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                            </button>
+                            <button onclick="removeFromWishlist(${idx})"
+                                style="padding:10px 14px; border:1px solid #dc2626; background:transparent; color:#dc2626; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.3s;"
+                                onmouseover="this.style.background='#dc2626'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#dc2626'">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function removeFromWishlist(idx) {
+            const wishlist = getWishlist();
+            wishlist.splice(idx, 1);
+            saveWishlist(wishlist);
+            renderWishlist();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderWishlist);
+    </script>
+</body>
+
+</html>
+
+
+

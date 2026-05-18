@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romuyks | Contact</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Contact Romuyks support for order help, account questions, shipping updates, and marketplace assistance." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.romuyks.com/5.contact.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Contact" />
+  <meta property="og:description" content="Contact Romuyks support for order help, account questions, shipping updates, and marketplace assistance." />
+  <meta property="og:url" content="https://www.romuyks.com/5.contact.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Contact" />
+  <meta name="twitter:description" content="Contact Romuyks support for order help, account questions, shipping updates, and marketplace assistance." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <!-- SEO META END -->
+    <link rel="stylesheet" href="E-commerce.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+      .contact-page {
+        position: relative;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 8% 12%, rgba(59, 21, 227, 0.2), transparent 28%),
+          radial-gradient(circle at 92% 78%, rgba(16, 185, 129, 0.14), transparent 32%),
+          linear-gradient(180deg, #05060d 0%, #090b15 50%, #05070f 100%);
+      }
+
+      .contact-page::before,
+      .contact-page::after {
+        content: "";
+        position: fixed;
+        border-radius: 999px;
+        filter: blur(85px);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .contact-page::before {
+        width: 320px;
+        height: 320px;
+        left: -120px;
+        top: 120px;
+        background: rgba(59, 21, 227, 0.18);
+      }
+
+      .contact-page::after {
+        width: 360px;
+        height: 360px;
+        right: -130px;
+        bottom: 20px;
+        background: rgba(16, 185, 129, 0.1);
+      }
+
+      .contact-wrap {
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-shell {
+        width: min(1080px, 100%);
+        margin: 0 auto;
+        padding: 26px;
+        border-radius: 26px;
+        border: 1px solid rgba(139, 92, 246, 0.22);
+        background: linear-gradient(155deg, rgba(10, 12, 24, 0.96), rgba(8, 10, 20, 0.96));
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.58);
+      }
+
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 18px;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        border-radius: 20px;
+        border: 1px solid rgba(99, 102, 241, 0.18);
+        background: rgba(8, 10, 20, 0.76);
+        padding: 22px;
+      }
+
+      .contact-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(129, 140, 248, 0.3);
+        background: rgba(129, 140, 248, 0.08);
+        color: #c7d2fe;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .contact-title {
+        margin-top: 14px;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        color: #f8fafc;
+        font-weight: 900;
+      }
+
+      .contact-subtitle {
+        margin-top: 12px;
+        color: #a1a1aa;
+        font-size: 14px;
+        line-height: 1.65;
+        max-width: 34ch;
+      }
+
+      .contact-cards {
+        margin-top: 20px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 14px;
+        padding: 12px 14px;
+      }
+
+      .contact-card i {
+        width: 18px;
+        text-align: center;
+        color: #93c5fd;
+      }
+
+      .contact-card-label {
+        color: #f8fafc;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .contact-card-value {
+        color: #94a3b8;
+        font-size: 12px;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #303a60;
+        background: rgba(10, 12, 24, 0.94);
+        color: #e5e7eb;
+        font-size: 14px;
+        padding: 13px 14px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.24);
+        background: rgba(14, 16, 30, 0.96);
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 130px;
+      }
+
+      .contact-send-btn {
+        width: 100%;
+        min-height: 48px;
+        border: 0;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #312e81, #4f46e5 48%, #7c3aed);
+        color: #eef2ff;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 0 14px 30px rgba(79, 70, 229, 0.28);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .contact-send-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 36px rgba(79, 70, 229, 0.38);
+      }
+
+      .contact-success {
+        display: none;
+        text-align: center;
+        color: #4ade80;
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      @media (max-width: 900px) {
+        .contact-shell {
+          padding: 16px;
+          border-radius: 20px;
+        }
+
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info,
+        .contact-form-card {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="contact-page text-slate-100 antialiased overflow-x-hidden">
+
+    <header>
+      <nav class="premium-nav  nav-links">
+        <!-- LEFT: LOGO -->
+        <div class="nav-left">
+          <div class="logo-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <span class="logo-text">ROMUYKS</span>
+        </div>
+
+        <!-- CENTER: MENU -->
+        <div class="nav-center">
+          <a href="1.index.html">Home</a>
+          <a href="3.products.html">Products</a>
+          <a href="4.shop.html">Shop</a>
+          <a href="2.about.html">About</a>
+          <a href="7.orders.html">Orders</a>
+        </div>
+
+        <!-- RIGHT: ICONS -->
+        <div class="nav-right">
+          <a href="6.cart.html" class="nav-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </a>
+
+          <a href="8.auth.html">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-wrap pt-[104px] pb-14 px-4 sm:px-6">
+      <div class="contact-shell">
+        <div class="contact-layout">
+          <div class="contact-info">
+            <span class="contact-eyebrow"><i class="fa-solid fa-headset"></i> Contact Team</span>
+            <h2 class="contact-title">Let's Solve It Fast.</h2>
+            <p class="contact-subtitle">Questions about orders, returns, or product support? Send us a message and our team will respond as quickly as possible.</p>
+
+            <div class="contact-cards">
+              <div class="contact-card">
+                <i class="fa-regular fa-envelope"></i>
+                <div>
+                  <p class="contact-card-label">Email Support</p>
+                  <p class="contact-card-value">support@romuyks.com</p>
+                </div>
+              </div>
+              <div class="contact-card">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div>
+                  <p class="contact-card-label">Call Us</p>
+                  <p class="contact-card-value">+91 98765 43210</p>
+                </div>
+              </div>
+              <div class="contact-card">
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                  <p class="contact-card-label">Working Hours</p>
+                  <p class="contact-card-value">Mon - Sat, 10:00 AM to 8:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <form class="contact-form" id="contactForm">
+              <input type="text" id="contactName" name="name" placeholder="Your Name" required />
+              <input type="email" id="contactEmail" name="email" placeholder="Your Email" required />
+              <textarea rows="5" id="contactMessage" name="message" placeholder="Tell us how we can help" required></textarea>
+              <button type="submit" class="contact-send-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+            <p id="contactSuccess" class="contact-success">Message sent successfully.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <img id="modalImg" />
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <h3 id="modalPrice"></h3>
+          <p id="modalDesc"></p>
+          <div class="platforms" id="modalPlatforms"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="cart.js"></script>
+    <!-- AI ASSISTANT -->
+    <div id="aiAssistant">
+      <div id="aiChat">
+        <div id="aiHeader">
+          Roumyks AI Assistant
+          <span onclick="toggleAI()">&times;</span>
+        </div>
+
+        <div id="aiMessages"></div>
+
+        <div id="aiInputBox">
+          <input type="text" id="aiInput" placeholder="Ask me anything..." />
+          <button onclick="sendAI()">Send</button>
+        </div>
+      </div>
+
+      <button id="aiBtn" onclick="toggleAI()" aria-label="Open AI chatbox"><img src="imgs/ai-chatbot-icon.jpeg" alt="AI chatbot icon" class="ai-btn-icon" /></button>
+    </div>
+    <script src="ai-assistant.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>
+
+
+

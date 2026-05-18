@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romuyks | Future. Defined.</title>
+  <!-- SEO META START -->
+  <meta name="description" content="Discover Romuyks for fashion, beauty, home essentials, and electronics with fast delivery, secure checkout, and trusted support." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.romuyks.com/1.index.html" />
+  <meta property="og:site_name" content="Romuyks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romuyks | Future. Defined." />
+  <meta property="og:description" content="Discover Romuyks for fashion, beauty, home essentials, and electronics with fast delivery, secure checkout, and trusted support." />
+  <meta property="og:url" content="https://www.romuyks.com/1.index.html" />
+  <meta property="og:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta property="og:image:alt" content="Romuyks online marketplace" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romuyks | Future. Defined." />
+  <meta name="twitter:description" content="Discover Romuyks for fashion, beauty, home essentials, and electronics with fast delivery, secure checkout, and trusted support." />
+  <meta name="twitter:image" content="https://www.romuyks.com/imgs/unnamed.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Romuyks",
+    "url": "https://www.romuyks.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.romuyks.com/4.shop.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Romuyks",
+    "url": "https://www.romuyks.com/",
+    "logo": "https://www.romuyks.com/imgs/unnamed.png"
+  }
+  </script>
+  <!-- SEO META END -->
+  <link rel="stylesheet" href="E-commerce.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b11d4",
+            "background-light": "#f6f6f8",
+            "background-dark": "#0b0a0f",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .glass-header {
+      background: rgba(11, 10, 15, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at center, rgba(43, 17, 212, 0.15) 0%, rgba(11, 10, 15, 0) 70%);
+    }
+    .product-card-hover:hover {
+      box-shadow: 0 0 20px rgba(43, 17, 212, 0.2);
+      border-color: rgba(43, 17, 212, 0.4);
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Push main content below fixed header */
+    main {
+      padding-top: 80px;
+    }
+    /* Hero adjusts for the padding */
+    .index-hero {
+      margin-top: -80px;
+      padding-top: 80px;
+    }
+
+    .hero-image-slider {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-slider-track {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transform: translateX(0);
+      transition: transform 0.9s ease;
+      will-change: transform;
+    }
+
+    .hero-image-slider .hero-slide {
+      width: 33.333333%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .hero-image-slider .hero-slide-bw {
+      filter: grayscale(1) brightness(0.4) contrast(1.15);
+      transition: filter 0.5s ease;
+    }
+
+    .group:hover .hero-image-slider .hero-slide-bw {
+      filter: none;
+    }
+
+    .hero-slider-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .hero-slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 9999px;
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      background: transparent;
+      transition: all 0.25s ease;
+      opacity: 0.9;
+    }
+
+    .hero-slider-dot.is-active {
+      background: #ffffff;
+      border-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slider-track {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+  <header>
+    <nav class="premium-nav  nav-links">
+      <!-- LEFT: LOGO -->
+      <div class="nav-left">
+        <div class="logo-icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <span class="logo-text">ROMUYKS</span>
+      </div>
+
+      <!-- CENTER: MENU -->
+      <div class="nav-center">
+        <a href="1.index.html">Home</a>
+        <a href="3.products.html">Products</a>
+        <a href="4.shop.html">Shop</a>
+        <a href="2.about.html">About</a>
+        <a href="7.orders.html">Orders</a>
+      </div>
+
+      <!-- RIGHT: ICONS -->
+      <div class="nav-right">
+        <a href="6.cart.html" class="nav-cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </a>
+
+        <a href="8.auth.html">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="index-hero relative min-h-[105vh] flex items-center overflow-hidden py-16 md:py-20">
+      <div class="absolute inset-0 hero-glow z-0"></div>
+      <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Next-Gen Arrival
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter uppercase">
+              <span class="block text-2xl md:text-3xl text-slate-300 mb-4 tracking-[0.35em]">Romuyks</span>
+              Future.<br /><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Defined.</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-md leading-relaxed">
+              Romuyks brings together modern technology, lifestyle essentials, and premium design for a smarter way to shop.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="4.shop.html">
+                <button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-widest flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(43,17,212,0.4)]">
+                  Shop Now
+                  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+              </a>
+              <a href="2.about.html">
+                <button class="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-widest transition-all">
+                  About us
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl">
+            <div class="absolute -inset-4 bg-primary/20 blur-3xl opacity-30 rounded-full group-hover:opacity-50 transition-opacity"></div>
+            <div class="relative w-full h-[440px] md:h-[540px] lg:h-[620px] overflow-hidden rounded-2xl bg-black/40 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+              <div class="hero-image-slider grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700">
+                <div class="hero-slider-track">
+                  <img alt="Romuyks headphone hero" class="hero-slide" src="imgs/unnamed.png" />
+                  <img alt="Romuyks moon lamp hero" class="hero-slide" src="imgs/img1.jpeg" />
+                  <img alt="Romuyks panda night lamp hero" class="hero-slide hero-slide-bw" src="imgs/img10.jpg" />
+                </div>
+                <div class="hero-slider-dots" aria-label="Hero image slider indicators">
+                  <span class="hero-slider-dot is-active" data-dot="0" aria-hidden="true"></span>
+                  <span class="hero-slider-dot" data-dot="1" aria-hidden="true"></span>
+                  <span class="hero-slider-dot" data-dot="2" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="mt-8 md:mt-10 border-y border-white/5 bg-white/[0.02] py-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="flex items-center gap-4 group">
+            <div class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+              <span class="material-symbols-outlined text-primary">local_shipping</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-white">Free Shipping</p>
+              <p class="text-[10px] text-slate-500 uppercase">On orders over $250</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 group">
+            <div class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+              <span class="material-symbols-outlined text-primary">support_agent</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-white">24/7 Support</p>
+              <p class="text-[10px] text-slate-500 uppercase">Expert assistance</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 group">
+            <div class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+              <span class="material-symbols-outlined text-primary">encrypted</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-white">Secure Payment</p>
+              <p class="text-[10px] text-slate-500 uppercase">100% encrypted</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 group">
+            <div class="size-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+              <span class="material-symbols-outlined text-primary">workspace_premium</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-white">Elite Warranty</p>
+              <p class="text-[10px] text-slate-500 uppercase">2-year coverage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories Grid -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <h2 class="text-3xl font-black uppercase tracking-tighter text-white">Core Categories</h2>
+            <p class="text-slate-500 mt-2">Engineered for every facet of modern life.</p>
+          </div>
+          <a class="text-primary text-xs font-bold uppercase tracking-widest hover:underline" href="4.shop.html">View All Collections</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Electronics Category -->
+          <a href="4.shop.html?category=tech" class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer block">
+            <img alt="Electronics" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=500&fit=crop" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Tech</p>
+              <h3 class="text-xl font-bold text-white uppercase italic">Electronics</h3>
+            </div>
+          </a>
+          <!-- Home & Kitchen Category -->
+          <a href="4.shop.html?category=living" class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer block">
+            <img alt="Home & Kitchen" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Living</p>
+              <h3 class="text-xl font-bold text-white uppercase italic">Home & Kitchen</h3>
+            </div>
+          </a>
+          <!-- Beauty & Personal Care Category -->
+          <a href="4.shop.html?category=care-living" class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer block">
+            <img alt="Beauty & Personal Care" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=500&fit=crop" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Care & Living</p>
+              <h3 class="text-xl font-bold text-white uppercase italic">Beauty & Personal</h3>
+            </div>
+          </a>
+          <!-- Fashion Category -->
+          <a href="4.shop.html?category=style-care" class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] cursor-pointer block">
+            <img alt="Fashion" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=500&fit=crop" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Style & Care</p>
+              <h3 class="text-xl font-bold text-white uppercase italic">Fashion</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Now -->
+    <section class="py-24 bg-white/[0.01]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-12">
+          <h2 class="text-3xl font-black uppercase tracking-tighter text-white">Trending Now</h2>
+          <a href="4.shop.html" class="text-primary text-xs font-bold uppercase tracking-widest hover:underline">View All</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="trendingProducts">
+          <!-- Products will be loaded here via JavaScript -->
+          <div class="group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300 cursor-pointer animate-pulse">
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-6 bg-slate-800"></div>
+            <div class="space-y-2">
+              <div class="h-4 bg-slate-800 rounded w-3/4"></div>
+              <div class="h-3 bg-slate-800 rounded w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Fetch trending products from backend
+      async function loadTrendingProducts() {
+        try {
+          const response = await fetch('http://localhost:5000/api/recommendations/trending');
+          const products = await response.json();
+          
+          const container = document.getElementById('trendingProducts');
+          container.innerHTML = '';
+          
+          // Map backend products to correct image paths
+          products.slice(0, 3).forEach(product => {
+            // Match product names to image files
+            let imgFile = 'img3.jpeg'; // default
+            const name = (product.name || '').toLowerCase();
+            
+            if (name.includes('waffle')) imgFile = 'img3.jpeg';
+            else if (name.includes('moon') || name.includes('crystal')) imgFile = 'img1.jpeg';
+            else if (name.includes('panda')) imgFile = 'img2.jpeg';
+            else if (name.includes('headphone') || name.includes('head phone') || name.includes('audio')) imgFile = 'unnamed.png';
+            else if (name.includes('ear')) imgFile = 'img4.jpeg';
+            else if (name.includes('galaxy')) imgFile = 'img5.jpeg';
+            else if (name.includes('aroma')) imgFile = 'img6.jpeg';
+            
+            const category = (product.category || 'home').toUpperCase();
+            const price = product.price || '\u20B9399';
+            
+            const card = document.createElement('div');
+            card.className = 'group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300 cursor-pointer';
+            card.onclick = () => openModal(product.name, price, product.description || 'Great product!', ['Amazon','Flipkart','Meesho'], imgFile, product.category || 'home');
+            card.innerHTML = `
+              <div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+                <img alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="imgs/${imgFile}" />
+                <button class="absolute bottom-4 right-4 bg-primary text-white size-10 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center"
+                  onclick="event.stopPropagation(); addToCart('${product.name}', ${parseInt(price.replace(/[^0-9]/g, '')) || 399}, 'imgs/${imgFile}')">
+                  <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                </button>
+              </div>
+              <div class="space-y-1">
+                <p class="text-[10px] font-bold text-primary uppercase tracking-widest">${category}</p>
+                <h4 class="text-white font-bold group-hover:text-primary transition-colors">${product.name}</h4>
+                <p class="text-slate-400 text-sm">${product.description || 'Premium product'}</p>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-white font-black">${price}</span>
+                  <span class="text-[10px] text-green-500 font-bold uppercase">Best Seller</span>
+                </div>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+        } catch (err) {
+          console.error('Error loading trending products:', err);
+          // Fallback to hardcoded products if API fails
+          loadFallbackProducts();
+        }
+      }
+      
+      function loadFallbackProducts() {
+        const fallbackProducts = [
+          { name: 'Headphone', price: '\u20B9899', image: 'unnamed.png', category: 'TECH', description: 'Wireless Over-Ear Headphone' },
+          { name: 'Waffle Maker', price: '\u20B9499', image: 'img3.jpeg', category: 'KITCHEN', description: 'Easy Waffle Maker' },
+          { name: '3D Crystal Moon Lamp', price: '\u20B9399', image: 'img1.jpeg', category: 'LIGHTING', description: 'Perfect Lamp for Night' }
+        ];
+        
+        const container = document.getElementById('trendingProducts');
+        container.innerHTML = '';
+        
+        fallbackProducts.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'group product-card-hover border border-white/5 bg-slate-900/50 p-4 rounded-xl transition-all duration-300 cursor-pointer';
+          card.onclick = () => openModal(product.name, product.price, product.description, ['Amazon','Flipkart','Meesho'], product.image, 'home');
+          card.innerHTML = `
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+              <img alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="imgs/${product.image}" />
+              <button class="absolute bottom-4 right-4 bg-primary text-white size-10 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center"
+                onclick="event.stopPropagation(); addToCart('${product.name}', ${parseInt(product.price.replace(/[^0-9]/g, ''))}, 'imgs/${product.image}')">
+                <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+              </button>
+            </div>
+            <div class="space-y-1">
+              <p class="text-[10px] font-bold text-primary uppercase tracking-widest">${product.category}</p>
+              <h4 class="text-white font-bold group-hover:text-primary transition-colors">${product.name}</h4>
+              <p class="text-slate-400 text-sm">${product.description}</p>
+              <div class="flex items-center justify-between pt-2">
+                <span class="text-white font-black">${product.price}</span>
+                <span class="text-[10px] text-green-500 font-bold uppercase">Best Seller</span>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+      
+      // Load on page ready
+      document.addEventListener('DOMContentLoaded', () => {
+        loadTrendingProducts();
+
+        // Hero slider: 5s interval, first headphone then moon lamp
+        const heroTrack = document.querySelector('.hero-slider-track');
+        const heroDots = document.querySelectorAll('.hero-slider-dot');
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        if (heroTrack) {
+          let currentSlide = 0;
+          const totalSlides = heroSlides.length;
+
+          const updateHeroDots = (activeIndex) => {
+            heroDots.forEach((dot, index) => {
+              dot.classList.toggle('is-active', index === activeIndex);
+            });
+          };
+
+          const updateHeroSlider = (slideIndex) => {
+            const offset = slideIndex * (100 / totalSlides);
+            heroTrack.style.transform = `translateX(-${offset}%)`;
+            updateHeroDots(slideIndex);
+          };
+
+          updateHeroSlider(0);
+
+          setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateHeroSlider(currentSlide);
+          }, 5000);
+        }
+      });
+    </script>
+
+    <!-- Newsletter CTA -->
+    <section class="py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-primary px-8 py-16 text-center shadow-[0_20px_50px_rgba(43,17,212,0.3)]">
+          <div class="absolute inset-0 opacity-10 z-0 bg-[radial-gradient(circle_at_center,_#fff_1px,_transparent_1px)] bg-[length:24px_24px]"></div>
+          <h2 class="text-4xl font-black text-white uppercase tracking-tighter mb-4 relative z-10">Join the Collective</h2>
+          <p class="text-white max-w-lg mx-auto mb-10 relative z-10">Sign up for early access to drops, exclusive discounts, and future tech updates. Join 50k+ tech enthusiasts.</p>
+          <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto relative z-10">
+            <input class="flex-1 bg-white/10 border-white/20 rounded-lg px-6 py-4 text-white placeholder:text-white/60 focus:ring-2 focus:ring-white/50 border-none" placeholder="Enter your email" type="email" />
+            <button class="bg-white text-primary px-8 py-4 rounded-lg font-bold uppercase tracking-widest hover:bg-slate-100 transition-colors">Join Now</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2 space-y-6">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="size-6 bg-[#2b11d4] rounded flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+            </div>
+            <span class="text-xl font-black tracking-tighter text-white uppercase">Romuyks</span>
+          </div>
+          <p class="max-w-xs text-sm leading-relaxed">Premium products across electronics, home essentials, beauty, and fashion. Elevating everyday life. Est 2024.</p>
+          <div class="flex gap-4">
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">brand_awareness</span>
+            </a>
+            <a class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-white transition-all" href="#">
+              <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="#">Electronics</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Home & Kitchen</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Beauty & Personal Care</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="2.about.html">About Romuyks</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary transition-colors" href="5.contact.html">Contact Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="returns-policy.html">Returns</a></li>
+            <li><a class="hover:text-primary transition-colors" href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-widest">
+        <p>&copy; 2024 Romuyks Technologies Inc. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+          <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+          <a class="hover:text-white transition-colors" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" />
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <h3 id="modalPrice"></h3>
+        <p id="modalDesc"></p>
+        <div class="platforms" id="modalPlatforms"></div>
+        <div class="modal-actions" id="modalActions"></div>
+        <div id="recSimilarProducts" style="display:none; margin-top:20px;"></div>
+        <div id="recAlsoBought" style="display:none; margin-top:10px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+  <script src="recommendation-engine.js"></script>
+  <script src="product-modal.js"></script>
+  <script>
+    // Platform rendering for modal (homepage context)
+    const _originalOpenModal = openModal;
+    openModal = function(title, price, desc, platforms, img, category) {
+      _originalOpenModal(title, price, desc, platforms, img, category);
+      let html = '';
+      if (Array.isArray(platforms)) {
+        platforms.forEach(p => {
+          html += '<span class="platform-badge">' + p + '</span>';
+        });
+      }
+      document.getElementById("modalPlatforms").innerHTML = html;
+    };
+  </script>
+  <!-- AI ASSISTANT -->
+  <div id="aiAssistant">
+    <div id="aiChat">
+      <div id="aiHeader">
+        Roumyks AI Assistant
+        <span onclick="toggleAI()">&times;</span>
+      </div>
+
+      <div id="aiMessages"></div>
+
+      <div id="aiInputBox">
+        <input type="text" id="aiInput" placeholder="Ask me anything..." />
+        <button onclick="sendAI()">Send</button>
+      </div>
+    </div>
+
+    <button id="aiBtn" onclick="toggleAI()" aria-label="Open AI chatbox"><img src="imgs/ai-chatbot-icon.jpeg" alt="AI chatbot icon" class="ai-btn-icon" /></button>
+  </div>
+  <script src="ai-assistant.js"></script>
+</body>
+
+</html>
+
