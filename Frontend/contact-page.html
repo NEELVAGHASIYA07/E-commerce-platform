@@ -4,6 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Critical Navbar CSS - Prevents blinking on page load -->
+    <style>
+      header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(11, 10, 15, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .premium-nav { max-width: 1300px; margin: auto; padding: 14px 30px; display: flex; align-items: center; justify-content: space-between; }
+      .nav-left { display: flex; align-items: center; gap: 10px; }
+      .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #2563eb, #7c3aed); display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; font-size: 14px; }
+      .logo-text { font-weight: 800; letter-spacing: 3px; font-size: 15px; text-transform: uppercase; color: #ffffff; }
+      .nav-center { display: flex; gap: 40px; }
+      .nav-center a { color: #d1d5db; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: 0.3s ease; }
+      .nav-center a:hover { color: #ffffff; }
+      .nav-right { display: flex; align-items: center; gap: 20px; }
+      .nav-cart, .nav-user { position: relative; font-size: 18px; color: #ffffff; transition: 0.3s ease; }
+      .nav-cart:hover, .nav-user:hover { transform: scale(1.1); color: #7c3aed; }
+      .cart-badge { position: absolute; top: -8px; right: -8px; background: #2563eb; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; }
+    </style>
     <title>Romuyks | Contact Us</title>
   <!-- SEO META START -->
   <meta name="description" content="Contact Romuyks support team for assistance and inquiries." />
@@ -24,8 +39,32 @@
   <!-- SEO META END -->
     <link rel="stylesheet" href="E-commerce.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b11d4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#0b0a0f",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
 </head>
 
 <body class="bg-[#0b0a0f] text-slate-100 antialiased overflow-x-hidden">

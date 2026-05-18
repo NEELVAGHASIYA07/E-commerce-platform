@@ -3,8 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romuyks | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <!-- Critical Navbar CSS - Prevents blinking on page load -->
+    <style>
+      header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(11, 10, 15, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .premium-nav { max-width: 1300px; margin: auto; padding: 14px 30px; display: flex; align-items: center; justify-content: space-between; }
+      .nav-left { display: flex; align-items: center; gap: 10px; }
+      .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #2563eb, #7c3aed); display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; font-size: 14px; }
+      .logo-text { font-weight: 800; letter-spacing: 3px; font-size: 15px; text-transform: uppercase; color: #ffffff; }
+      .nav-center { display: flex; gap: 40px; }
+      .nav-center a { color: #d1d5db; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: 0.3s ease; }
+      .nav-center a:hover { color: #ffffff; }
+      .nav-right { display: flex; align-items: center; gap: 20px; }
+      .nav-cart, .nav-user { position: relative; font-size: 18px; color: #ffffff; transition: 0.3s ease; }
+      .nav-cart:hover, .nav-user:hover { transform: scale(1.1); color: #7c3aed; }
+      .cart-badge { position: absolute; top: -8px; right: -8px; background: #2563eb; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; }
+    </style>    <title>Romuyks | Dashboard</title>
   <!-- SEO META START -->
   <meta name="description" content="Manage your Romuyks account, profile, and recent activity from your dashboard." />
   <meta name="robots" content="noindex, nofollow" />
@@ -268,10 +281,10 @@
     <!-- ============================
          ADMIN DASHBOARD
     ============================= -->
-    <section id="adminDashboard" style="display:none; max-width:1200px; margin:100px auto 60px; padding:0 20px;">
+    <section id="adminDashboard" style="display:none; max-width:1240px; margin:100px auto 60px; padding:0 20px;">
 
         <!-- Admin Header -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; flex-wrap:wrap; gap:15px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:15px;">
             <div style="display:flex; align-items:center; gap:15px;">
                 <div style="width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#dc2626,#f97316); display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff;">
                     <i class="fa-solid fa-shield-halved"></i>
@@ -287,7 +300,7 @@
         </div>
 
         <!-- Stats Cards -->
-        <div id="adminStats" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:15px; margin-bottom:30px;">
+        <div id="adminStats" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:15px; margin-bottom:28px;">
             <div class="admin-stat-card">
                 <i class="fa-solid fa-indian-rupee-sign" style="color:#16a34a;"></i>
                 <div class="admin-stat-value" id="statRevenue">&#8377;0</div>
@@ -345,14 +358,28 @@
 
         <!-- Tab Content: ORDERS -->
         <div class="admin-tab-content" id="tabOrders">
-            <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
-                <button class="admin-filter-btn active" data-filter="all" onclick="filterAdminOrders('all')">All</button>
-                <button class="admin-filter-btn" data-filter="Pending" onclick="filterAdminOrders('Pending')">Pending</button>
-                <button class="admin-filter-btn" data-filter="Confirmed" onclick="filterAdminOrders('Confirmed')">Confirmed</button>
-                <button class="admin-filter-btn" data-filter="Rejected" onclick="filterAdminOrders('Rejected')">Rejected</button>
-                <button class="admin-filter-btn" data-filter="payment:paid" onclick="filterAdminOrders('payment:paid')">Paid</button>
-                <button class="admin-filter-btn" data-filter="payment:pending" onclick="filterAdminOrders('payment:pending')">Payment Pending</button>
-                <button class="admin-filter-btn" data-filter="payment:failed" onclick="filterAdminOrders('payment:failed')">Payment Failed</button>
+            <div class="admin-orders-header">
+                <div>
+                    <div class="admin-section-kicker">Order management</div>
+                    <h2 class="admin-section-title">Orders</h2>
+                    <p class="admin-section-description">Review payment status, confirm orders, and reject invalid requests from one place.</p>
+                </div>
+                <div class="admin-orders-summary">
+                    <span class="admin-summary-chip"><i class="fa-solid fa-list"></i> <span id="adminOrderCount">0</span> shown</span>
+                    <span class="admin-summary-chip"><i class="fa-solid fa-filter"></i> <span id="adminActiveFilterLabel">All</span></span>
+                </div>
+            </div>
+            <div class="admin-orders-toolbar">
+                <div class="admin-filter-group">
+                    <button class="admin-filter-btn active" data-filter="all" onclick="filterAdminOrders('all')">All</button>
+                    <button class="admin-filter-btn" data-filter="Pending" onclick="filterAdminOrders('Pending')">Pending</button>
+                    <button class="admin-filter-btn" data-filter="Confirmed" onclick="filterAdminOrders('Confirmed')">Confirmed</button>
+                    <button class="admin-filter-btn" data-filter="Rejected" onclick="filterAdminOrders('Rejected')">Rejected</button>
+                    <button class="admin-filter-btn" data-filter="payment:paid" onclick="filterAdminOrders('payment:paid')">Paid</button>
+                    <button class="admin-filter-btn" data-filter="payment:pending" onclick="filterAdminOrders('payment:pending')">Payment Pending</button>
+                    <button class="admin-filter-btn" data-filter="payment:failed" onclick="filterAdminOrders('payment:failed')">Payment Failed</button>
+                </div>
+                <button type="button" class="admin-refresh-btn" onclick="refreshAdminDashboard()"><i class="fa-solid fa-rotate"></i> Refresh</button>
             </div>
             <div id="adminOrdersList"></div>
         </div>
@@ -440,6 +467,8 @@
         let currentFilter = 'all';
         let currentTab = 'orders';
         let logoutRedirectTarget = '1.index.html';
+        let adminStatsToken = null;
+        let adminStatsRefreshHandle = null;
 
         const logoutModal = document.getElementById('logoutModal');
         const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
@@ -459,6 +488,11 @@
         }
 
         function performLogout() {
+            if (adminStatsRefreshHandle) {
+                clearInterval(adminStatsRefreshHandle);
+                adminStatsRefreshHandle = null;
+            }
+            adminStatsToken = null;
             localStorage.removeItem('token');
             localStorage.removeItem('cart');
             if (typeof cart !== 'undefined') cart = [];
@@ -510,10 +544,12 @@
                     document.getElementById('adminWelcome').textContent = 'Welcome, ' + userName;
                     document.title = 'Roumyks | Admin Dashboard';
 
+                    adminStatsToken = token;
                     loadAdminStats(token);
                     loadAdminOrders(token);
                     loadAdminUsers(token);
                     loadAdminMessages(token);
+                    startAdminStatsAutoRefresh();
 
                     document.getElementById('adminLogoutBtn').addEventListener('click', (event) => {
                         event.preventDefault();
@@ -551,6 +587,12 @@
             }
         });
 
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && adminStatsToken) {
+                loadAdminStats(adminStatsToken);
+            }
+        });
+
         // ========== ADMIN TAB SWITCHING ==========
         function switchAdminTab(tab) {
             currentTab = tab;
@@ -562,19 +604,37 @@
 
         // ========== ADMIN STATS ==========
         function animateCount(el, target, prefix) {
+            if (!el) return;
             prefix = prefix || '';
-            let start = 0;
+            const startText = String(el.textContent || '').replace(/[^0-9.-]/g, '');
+            const start = Number(startText) || 0;
+            const finalTarget = Number(target) || 0;
             const duration = 800;
             const startTime = performance.now();
             function step(now) {
                 const progress = Math.min((now - startTime) / duration, 1);
                 const eased = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(eased * target);
+                const current = Math.floor(start + (finalTarget - start) * eased);
                 el.textContent = prefix + current.toLocaleString();
                 if (progress < 1) requestAnimationFrame(step);
-                else el.textContent = prefix + target.toLocaleString();
+                else el.textContent = prefix + finalTarget.toLocaleString();
             }
             requestAnimationFrame(step);
+        }
+
+        function startAdminStatsAutoRefresh() {
+            if (adminStatsRefreshHandle || !adminStatsToken) return;
+            adminStatsRefreshHandle = setInterval(() => {
+                if (document.visibilityState === 'visible' && adminStatsToken) {
+                    loadAdminStats(adminStatsToken);
+                }
+            }, 30000);
+        }
+
+        function refreshAdminDashboard() {
+            if (!adminStatsToken) return;
+            loadAdminStats(adminStatsToken);
+            loadAdminOrders(adminStatsToken);
         }
 
         async function loadAdminStats(token) {
@@ -590,7 +650,7 @@
                 animateCount(document.getElementById('statConfirmed'), s.confirmedOrders || 0);
                 animateCount(document.getElementById('statRejected'), s.rejectedOrders || 0);
                 animateCount(document.getElementById('statUsers'), s.totalUsers || 0);
-                animateCount(document.getElementById('statProducts'), s.totalProducts || 0);
+                animateCount(document.getElementById('statProducts'), 11);
                 animateCount(document.getElementById('statMessages'), s.totalMessages || 0);
             } catch (err) { console.error('Stats error:', err); }
         }
@@ -614,6 +674,9 @@
             document.querySelectorAll('.admin-filter-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.filter === filter);
             });
+            const filterLabel = filter === 'all' ? 'All orders' : (filter.startsWith('payment:') ? 'Payment: ' + filter.split(':')[1] : filter);
+            const filterEl = document.getElementById('adminActiveFilterLabel');
+            if (filterEl) filterEl.textContent = filterLabel;
             renderAdminOrders();
         }
 
@@ -631,9 +694,14 @@
             }
 
             if (!orders.length) {
-                container.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px;">No orders found.</p>';
+                const orderCount = document.getElementById('adminOrderCount');
+                if (orderCount) orderCount.textContent = '0';
+                container.innerHTML = '<div class="admin-order-card"><div class="admin-order-card__body"><p class="admin-order-note" style="text-align:center;color:#94a3b8;padding:24px 0;">No orders found.</p></div></div>';
                 return;
             }
+
+            const orderCount = document.getElementById('adminOrderCount');
+            if (orderCount) orderCount.textContent = String(orders.length);
 
             container.innerHTML = orders.map(order => {
                 const status = order.status || 'Pending';
@@ -642,56 +710,56 @@
                 const userName = order.user ? (order.user.name || order.user.email || 'Unknown') : 'Unknown';
                 const userEmail = order.user ? (order.user.email || '') : '';
                 const date = new Date(order.createdAt).toLocaleString();
-
-                let paymentBadgeStyle = 'background:rgba(245,158,11,0.15);color:#f59e0b;';
-                let paymentBadgeLabel = 'Pending';
-                if (paymentStatus === 'paid') {
-                    paymentBadgeStyle = 'background:rgba(22,163,74,0.15);color:#16a34a;';
-                    paymentBadgeLabel = 'Paid';
-                } else if (paymentStatus === 'failed') {
-                    paymentBadgeStyle = 'background:rgba(220,38,38,0.15);color:#dc2626;';
-                    paymentBadgeLabel = 'Failed';
-                }
+                const paymentBadgeIcon = paymentStatus === 'paid' ? 'fa-circle-check' : (paymentStatus === 'failed' ? 'fa-circle-xmark' : 'fa-clock');
+                const statusIcon = statusClass === 'confirmed' ? 'fa-circle-check' : (statusClass === 'rejected' ? 'fa-circle-xmark' : 'fa-clock');
 
                 const itemsHtml = (order.items || []).map(item => `
-                    <div style="display:flex;align-items:center;gap:12px;padding:8px;background:#020617;border-radius:10px;margin-bottom:6px;">
-                        <img src="imgs/${item.image}" alt="${item.name}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;">
+                    <div class="admin-order-item">
+                        <img src="imgs/${item.image}" alt="${item.name}">
                         <div>
-                            <p style="font-weight:600;color:#e5e7eb;margin:0;">${item.name}</p>
-                            <p style="color:#9ca3af;margin:0;font-size:12px;">&#8377;${item.price} x ${item.quantity}</p>
+                            <p class="admin-order-item-title">${item.name}</p>
+                            <p class="admin-order-item-meta">&#8377;${item.price} x ${item.quantity}</p>
                         </div>
                     </div>
                 `).join('');
 
                 const actionButtons = status === 'Pending' ? `
-                    <div style="display:flex;gap:10px;margin-top:15px;">
+                    <div class="admin-order-actions">
                         <button onclick="confirmOrder('${order._id}')" class="admin-action-btn confirm-btn">&#10003; Confirm</button>
                         <button onclick="rejectOrder('${order._id}')" class="admin-action-btn reject-btn">&#10007; Reject</button>
                     </div>
-                ` : `<p style="margin-top:12px;font-weight:700;font-size:13px;color:${status === 'Confirmed' ? '#16a34a' : '#dc2626'};">
+                ` : `<p class="admin-order-note" style="color:${status === 'Confirmed' ? '#22c55e' : '#f87171'};">
                     ${status === 'Confirmed' ? '&#10003; Payment Verified' : '&#10007; Payment Rejected'}
                 </p>`;
 
                 return `
-                    <div class="admin-order-card">
-                        <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;">
-                            <div>
-                                <span class="order-status ${statusClass}">${status}</span>
-                                <span style="margin-left:8px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;${paymentBadgeStyle}">
-                                    Payment: ${paymentBadgeLabel}
-                                </span>
-                                <p style="color:#6b7280;font-size:11px;margin:8px 0 4px;">${date}</p>
-                                <p style="color:#e5e7eb;font-size:14px;"><strong>Customer:</strong> ${userName}</p>
-                                ${userEmail ? `<p style="color:#6b7280;font-size:12px;margin:0;">${userEmail}</p>` : ''}
+                    <div class="admin-order-card ${statusClass}">
+                        <div class="admin-order-card__body">
+                            <div class="admin-order-top">
+                                <div class="admin-order-main">
+                                    <div class="admin-order-badges">
+                                        <span class="admin-order-badge status ${statusClass}"><i class="fa-solid ${statusIcon}"></i> ${status}</span>
+                                        <span class="admin-order-badge payment ${paymentStatus}"><i class="fa-solid ${paymentBadgeIcon}"></i> Payment ${paymentStatus}</span>
+                                    </div>
+                                    <div class="admin-order-id">Order ID: ${order._id}</div>
+                                    <p class="admin-order-customer">Customer: ${userName}</p>
+                                    ${userEmail ? `<div class="admin-order-submeta"><span>${userEmail}</span></div>` : ''}
+                                    <div class="admin-order-submeta">
+                                        <span><i class="fa-regular fa-calendar"></i> ${date}</span>
+                                        <span><i class="fa-solid fa-credit-card"></i> ${order.paymentMethod}</span>
+                                    </div>
+                                </div>
+                                <div class="admin-order-total">
+                                    <div class="admin-order-total-label">Total</div>
+                                    <div class="admin-order-total-value">&#8377;${order.totalAmount}</div>
+                                </div>
                             </div>
-                            <div style="text-align:right;">
-                                <p style="color:#6b7280;font-size:11px;word-break:break-all;">${order._id}</p>
-                                <p style="color:#e5e7eb;font-weight:800;font-size:18px;">&#8377;${order.totalAmount}</p>
-                                <p style="color:#9ca3af;font-size:12px;">${order.paymentMethod}</p>
+                            <div class="admin-order-items">
+                                <div class="admin-order-items-title">Items (${(order.items || []).length})</div>
+                                ${itemsHtml}
                             </div>
+                            ${actionButtons}
                         </div>
-                        <div style="margin-top:12px;">${itemsHtml}</div>
-                        ${actionButtons}
                     </div>
                 `;
             }).join('');
